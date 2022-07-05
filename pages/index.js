@@ -1,6 +1,7 @@
-import Login from "./Login";
+import Header from "../components/UI/Header";
+
 const index = () => {
-  return <Login />;
+  return <Header />;
 };
 
 export default index;
