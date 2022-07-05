@@ -4,7 +4,6 @@ import {
   IconButton,
   Typography,
   Stack,
-  button,
   Button,
 } from "@mui/material";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
