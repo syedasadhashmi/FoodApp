@@ -5,8 +5,8 @@ import {
   TextField,
   Button,
   Typography,
-} from "@mui/material";
-import classes from "./login.module.css";
+} from '@mui/material';
+import classes from './login.module.css';
 
 const Login = () => {
   return (
@@ -20,11 +20,20 @@ const Login = () => {
       </Grid>
       <Grid item xs={6}>
         <Container className={classes.tableStyle}>
-          <Stack>
-            <Typography variant="h4">Admin Panel</Typography>
-            <TextField label="Email Address" variant="standard" />
-            <TextField label="Password" variant="standard" />
-            <Button variant="outlined">Submit</Button>
+          <Stack direction="column" spacing={3}>
+            <div className={classes.center}>
+              <Typography variant="h4">Admin Panel</Typography>
+            </div>
+            <TextField label="Email Address" required variant="standard" />
+            <TextField
+              label="Password"
+              required
+              variant="standard"
+              type="password"
+            />
+            <div className={classes.center}>
+              <Button variant="contained">Submit</Button>
+            </div>
           </Stack>
         </Container>
       </Grid>

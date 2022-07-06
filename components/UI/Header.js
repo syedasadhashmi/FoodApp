@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   AppBar,
   Toolbar,
@@ -5,8 +6,8 @@ import {
   Typography,
   Stack,
   Button,
-} from "@mui/material";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
+} from '@mui/material';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 const Header = () => {
   return (
     <AppBar position="static">
@@ -18,7 +19,9 @@ const Header = () => {
           FoodApp
         </Typography>
         <Stack direction="row" spacing={2}>
-          <Button color="inherit">Home</Button>
+          <Link href="../Home/">
+            <Button color="inherit">Home</Button>
+          </Link>
           <Button color="inherit">Orders</Button>
           <Button color="inherit">Users</Button>
           <Button color="inherit">Restaurants</Button>
