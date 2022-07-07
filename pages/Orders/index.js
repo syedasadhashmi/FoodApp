@@ -5,17 +5,17 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import React, { useState } from 'react';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import Container from '@mui/material/Container';
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import React, { useState } from "react";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import Container from "@mui/material/Container";
 
 const Orders = () => {
-  const [value, setValue] = useState('1');
-  const [expanded, setExpanded] = useState('false');
+  const [value, setValue] = useState("1");
+  const [expanded, setExpanded] = useState("false");
   const handleAccordianChange = (isExpanded, panel) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -23,9 +23,9 @@ const Orders = () => {
     setValue(newValue);
   };
   return (
-    <Container sx={{ height: '532px' }}>
+    <Container sx={{ height: "532px" }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList aria-label="Tabs example" onChange={handleChange}>
             <Tab label="Tab One" value="1" />
             <Tab label="Tab Two" value="2" />
@@ -34,9 +34,9 @@ const Orders = () => {
         </Box>
         <TabPanel value="1">
           <Accordion
-            expanded={expanded === 'panel1'}
+            expanded={expanded === "panel1"}
             onChange={(event, isExpanded) =>
-              handleAccordianChange(isExpanded, 'panel1')
+              handleAccordianChange(isExpanded, "panel1")
             }
           >
             <AccordionSummary
@@ -55,9 +55,9 @@ const Orders = () => {
             </AccordionDetails>
           </Accordion>
           <Accordion
-            expanded={expanded === 'panel2'}
+            expanded={expanded === "panel2"}
             onChange={(event, isExpanded) =>
-              handleAccordianChange(isExpanded, 'panel2')
+              handleAccordianChange(isExpanded, "panel2")
             }
           >
             <AccordionSummary
@@ -76,9 +76,9 @@ const Orders = () => {
             </AccordionDetails>
           </Accordion>
           <Accordion
-            expanded={expanded === 'panel3'}
+            expanded={expanded === "panel3"}
             onChange={(event, isExpanded) =>
-              handleAccordianChange(isExpanded, 'panel3')
+              handleAccordianChange(isExpanded, "panel3")
             }
           >
             <AccordionSummary
