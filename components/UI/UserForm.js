@@ -9,9 +9,25 @@ import {
   Grid,
   TextField,
 } from "@mui/material";
+import React, { useState } from "react";
+import MenuItem from "@mui/material/MenuItem";
+
+const GenderObj = [
+  {
+    value: "Male",
+  },
+  {
+    value: "Female",
+  },
+];
 const UserForm = () => {
+  const [gender, setGender] = useState("Male");
+
+  const handleChange = (event) => {
+    setGender(event.target.value);
+  };
   return (
-    <Container>
+    <Container sx={{ height: "83vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
         <CardHeader title="Add User" />
         <Divider />
@@ -43,7 +59,21 @@ const UserForm = () => {
               />
             </Grid>
             <Grid item xs={4}>
-              <TextField label="Gender" required variant="outlined" fullWidth />
+              <TextField
+                id="outlined-select-Gennder"
+                select
+                label="Select"
+                value={gender}
+                onChange={handleChange}
+                helperText="Please select Gender"
+                fullWidth
+              >
+                {GenderObj.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
             <Grid item xs={4}>
               <TextField

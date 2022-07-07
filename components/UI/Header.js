@@ -10,7 +10,7 @@ import {
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 const Header = () => {
   return (
-    <AppBar position="static" sx={{ marginBottom: "20px" }}>
+    <AppBar position="static">
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit" aria-label="logo">
           <FastfoodIcon />

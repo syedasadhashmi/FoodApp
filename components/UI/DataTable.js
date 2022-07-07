@@ -53,7 +53,7 @@ const rows = [
 ];
 const DataTable = () => {
   return (
-    <Container>
+    <Container sx={{ height: "83vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
         <CardHeader
           title="Users"
@@ -67,7 +67,7 @@ const DataTable = () => {
         />
         <CardContent>
           <DataGrid
-            sx={{ height: "78vh" }}
+            sx={{ height: "65vh" }}
             rows={rows}
             columns={columns}
             pageSize={9}
