@@ -22,8 +22,12 @@ const Header = () => {
           <Link href="../Home/">
             <Button color="inherit">Home</Button>
           </Link>
-          <Button color="inherit">Orders</Button>
-          <Button color="inherit">Users</Button>
+          <Link href="../Orders/">
+            <Button color="inherit">Orders</Button>
+          </Link>
+          <Link href="../Users/">
+            <Button color="inherit">Users</Button>
+          </Link>
           <Button color="inherit">Restaurants</Button>
         </Stack>
       </Toolbar>

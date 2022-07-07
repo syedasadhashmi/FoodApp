@@ -1,12 +1,14 @@
 import Header from "../../components/UI/Header";
 import Footer from "../../components/UI/Footer";
-import DataTable from "../../components/UI/DataTable";
-export default function Users() {
+import UserForm from "../../components/UI/UserForm";
+const addUser = () => {
   return (
     <>
       <Header />
-      <DataTable />
+      <UserForm />
       <Footer />
     </>
   );
-}
+};
+
+export default addUser;
