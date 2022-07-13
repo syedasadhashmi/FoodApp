@@ -14,7 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 const columns = [
   { field: "id", headerName: "ID", width: 100 },
-  { field: "firstName", headerName: "First name", width: 150 },
+  { field: "firstName", headerName: "First name", width: 150, editable: true },
   { field: "lastName", headerName: "Last name", width: 150 },
   { field: "age", headerName: "Age", width: 150 },
   {

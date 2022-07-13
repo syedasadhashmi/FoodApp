@@ -21,6 +21,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Container from "@mui/material/Container";
+import classes from "./Orders.module.css";
 
 const Orders = () => {
   const [value, setValue] = useState("1");
@@ -68,7 +69,7 @@ const Orders = () => {
                       Doloremque natus dolore magni deserunt ad amet enim ut qui
                       quis accusamus.
                     </Typography>
-                    <div>
+                    <div className={classes.inProgressBtn}>
                       <Button variant="outlined">In Progress</Button>
                     </div>
                   </AccordionDetails>
@@ -94,7 +95,9 @@ const Orders = () => {
                       quis accusamus.
                     </Typography>
                     <div>
-                      <Button variant="outlined">In Progress</Button>
+                      <Button variant="outlined" sx={{ alignItems: "end" }}>
+                        In Progress
+                      </Button>
                     </div>
                   </AccordionDetails>
                 </Accordion>
