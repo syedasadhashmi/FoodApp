@@ -15,6 +15,8 @@
     "@mui/lab": "*",
     "@mui/material": "^5.8.7",
     "@mui/x-data-grid": "^5.12.3",
+    "@unicef/material-ui-currency-textfield": "^0.8.6",
+    "material-ui-phone-number": "^3.0.0",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
