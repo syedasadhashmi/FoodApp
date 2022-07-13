@@ -59,8 +59,8 @@ const columns = [
     },
   },
 ];
-const DataTable = ({ props }) => {
-  // console.log(props);
+const DataTable = ({ props, columnsData }) => {
+  console.log(columnsData);
   // const [tableData, setTableData] = useState([]);
 
   // useEffect(() => {
