@@ -28,7 +28,9 @@ const Header = () => {
           <Link href="../Users/">
             <Button color="inherit">Users</Button>
           </Link>
-          <Button color="inherit">Restaurants</Button>
+          <Link href="../Restaurants/">
+            <Button color="inherit">Restaurants</Button>
+          </Link>
         </Stack>
       </Toolbar>
     </AppBar>
