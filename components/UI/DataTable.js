@@ -9,24 +9,6 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import { DataGrid } from "@mui/x-data-grid";
 import Link from "next/link";
 const DataTable = ({ props, columnsData, dataObj }) => {
-  const colData = columnsData.map((colItems) => {
-    return {
-      field: colItems.field,
-      headerName: colItems.headerName,
-      width: colItems.width,
-      editable: colItems.editable,
-      renderCell: colItems.renderCell,
-      valueGetter: colItems.valueGetter,
-    };
-  });
-  const rowsData = props.map((items) => {
-    return {
-      id: items.id,
-      firstName: items.firstName,
-      lastName: items.lastName,
-      age: items.age,
-    };
-  });
   return (
     <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
@@ -43,8 +25,8 @@ const DataTable = ({ props, columnsData, dataObj }) => {
         <CardContent>
           <DataGrid
             sx={{ height: "65vh" }}
-            rows={rowsData}
-            columns={colData}
+            rows={props}
+            columns={columnsData}
             pageSize={9}
             rowsPerPageOptions={[9]}
             checkboxSelection
@@ -54,5 +36,4 @@ const DataTable = ({ props, columnsData, dataObj }) => {
     </Container>
   );
 };
-
 export default DataTable;
