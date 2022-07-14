@@ -11,61 +11,70 @@ import { DataGrid } from "@mui/x-data-grid";
 import Link from "next/link";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-const columns = [
-  { field: "id", headerName: "ID", width: 100 },
-  {
-    field: "firstName",
-    headerName: "firstName",
-    width: 150,
-    editable: true,
-  },
-  { field: "lastName", headerName: "lastName", width: 150 },
-  { field: "age", headerName: "age", width: 150 },
-  {
-    field: "fullName",
-    headerName: "fullName",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 200,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
-  {
-    field: "Action",
-    width: 150,
-    renderCell: (cellValues) => {
-      return (
-        <>
-          <IconButton
-            variant="contained"
-            color="primary"
-            // onClick={(event) => {
-            //   handleClick(event, cellValues);
-            // }}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            variant="contained"
-            color="primary"
-            // onClick={(event) => {
-            //   handleClick(event, cellValues);
-            // }}
-          >
-            <DeleteIcon />
-          </IconButton>
-        </>
-      );
-    },
-  },
-];
+// const columns = [
+//   { field: "id", headerName: "ID", width: 100 },
+//   {
+//     field: "firstName",
+//     headerName: "firstName",
+//     width: 150,
+//     editable: true,
+//   },
+//   { field: "lastName", headerName: "lastName", width: 150 },
+//   { field: "age", headerName: "age", width: 150 },
+//   {
+//     field: "fullName",
+//     headerName: "fullName",
+//     description: "This column has a value getter and is not sortable.",
+//     sortable: false,
+//     width: 200,
+//     valueGetter: (params) =>
+//       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+//   },
+//   {
+//     field: "Action",
+//     width: 150,
+//     renderCell: (cellValues) => {
+//       return (
+//         <>
+//           <IconButton
+//             variant="contained"
+//             color="primary"
+//             // onClick={(event) => {
+//             //   handleClick(event, cellValues);
+//             // }}
+//           >
+//             <EditIcon />
+//           </IconButton>
+//           <IconButton
+//             variant="contained"
+//             color="primary"
+//             // onClick={(event) => {
+//             //   handleClick(event, cellValues);
+//             // }}
+//           >
+//             <DeleteIcon />
+//           </IconButton>
+//         </>
+//       );
+//     },
+//   },
+// ];
 const DataTable = ({ props, columnsData }) => {
-  console.log(columnsData);
   // const [tableData, setTableData] = useState([]);
 
   // useEffect(() => {
   //   setTableData(props);
   // }, []);
+  const colData = columnsData.map((colItems) => {
+    return {
+      field: colItems.field,
+      headerName: colItems.headerName,
+      width: colItems.width,
+      editable: colItems.editable,
+      renderCell: colItems.renderCell,
+      valueGetter: colItems.valueGetter,
+    };
+  });
   const rowsData = props.map((items) => {
     return {
       id: items.id,
@@ -102,7 +111,7 @@ const DataTable = ({ props, columnsData }) => {
           <DataGrid
             sx={{ height: "65vh" }}
             rows={rowsData}
-            columns={columns}
+            columns={colData}
             pageSize={9}
             rowsPerPageOptions={[9]}
             checkboxSelection
