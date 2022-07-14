@@ -64,10 +64,14 @@ export default function Users() {
       },
     },
   ];
+  const dataObj = {
+    title: "Users",
+    link: "../Users/addUser",
+  };
   return (
     <>
       <Header />
-      <DataTable props={rowData} columnsData={columnsData} />
+      <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
       <Footer />
     </>
   );
