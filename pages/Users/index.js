@@ -2,7 +2,6 @@ import { IconButton } from "@mui/material";
 import Header from "../../components/UI/Header";
 import Footer from "../../components/UI/Footer";
 import DataTable from "../../components/UI/DataTable";
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 export default function Users() {
   const rowData = [
@@ -20,7 +19,7 @@ export default function Users() {
       FirstName: "Lannister",
       LastName: "Cersei",
       Age: 42,
-      Gender: "Male",
+      Gender: "Female",
       Position: "Lead",
       Address: "king Selveston",
     },
@@ -56,7 +55,7 @@ export default function Users() {
       FirstName: "Melisandre",
       LastName: "mayan",
       Age: 150,
-      Gender: "Male",
+      Gender: "Female",
       Position: "Lead",
       Address: "king Selveston",
     },
