@@ -15,7 +15,7 @@ const Login = () => {
     <>
       <Header />
       <Grid container className={classes.centerGrid}>
-        <Grid item xs={6} height="88vh" display={{ xs: "none", sm: "flex" }}>
+        <Grid item xs={6} height="88vh" display={{ xs: "none", sm: "block" }}>
           <picture>
             <img
               className={classes.loginImg}
