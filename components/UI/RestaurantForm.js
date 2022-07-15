@@ -20,11 +20,11 @@ const RestaurantTypeObj = [
     value: "Italian",
   },
   {
-    value: "Fast Food",
+    value: "Turkish",
   },
 ];
 const RestaurantForm = () => {
-  const [resType, setResType] = useState("Fast Food");
+  const [resType, setResType] = useState("Italian");
   const [phone, setPhone] = useState("");
 
   const handleNumOnChange = (value) => {
