@@ -46,29 +46,26 @@ const Header = () => {
     <AppBar position="static">
       {/* <Container> */}
       <Toolbar className={classes.toolBarDirection}>
-        <div className={classes.navLogo}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="logo"
-          >
-            <FastfoodIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          </IconButton>
+        <FastfoodIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+        <Link href="../Home">
           <Typography
-            variant="h6"
-            component="div"
+            className={classes.link}
+            variant="h5"
+            noWrap
+            component="a"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
+              flexGrow: 1,
+              fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            FoodApp
+            Food App
           </Typography>
-        </div>
+        </Link>
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton
             size="large"
@@ -107,26 +104,27 @@ const Header = () => {
             ))}
           </Menu>
         </Box>
-        <IconButton size="large" edge="start" color="inherit" aria-label="logo">
-          <FastfoodIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-        </IconButton>
-        <Typography
-          variant="h5"
-          noWrap
-          component="a"
-          href=""
-          sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
-          Food App
-        </Typography>
+
+        <FastfoodIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+        <Link href="../Home">
+          <Typography
+            className={classes.link}
+            variant="h5"
+            noWrap
+            component="a"
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            Food App
+          </Typography>
+        </Link>
         <Box
           sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           className={classes.toolBarDirection}
