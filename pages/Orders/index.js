@@ -22,7 +22,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Container from "@mui/material/Container";
 import classes from "./Orders.module.css";
-const inProgressObj = [
+const inPendingObj = [
   {
     id: 1,
     title: "Manchorian",
@@ -38,6 +38,46 @@ const inProgressObj = [
   {
     id: 3,
     title: "Borek",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+];
+const inProgressObj = [
+  {
+    id: 1,
+    title: "Menemen",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+  {
+    id: 2,
+    title: "Pizza",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+  {
+    id: 3,
+    title: "Chinese Rice",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+];
+const deliveredObj = [
+  {
+    id: 1,
+    title: "Spaghetti",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+  {
+    id: 2,
+    title: "Pasta",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
+  },
+  {
+    id: 3,
+    title: "Lasagna",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit Doloremque natus dolore magni deserunt ad amet enim ut qui quis accusamus.",
   },
@@ -68,17 +108,17 @@ const Orders = () => {
                 </TabList>
               </Box>
               <TabPanel value="1">
-                {/* {inProgressObj.map((items) => (
+                {inPendingObj.map((items) => (
                   <Accordion
                     key={items.id}
                     expanded={expanded === `panel${items.id}`}
                     onChange={(event, isExpanded) =>
-                      handleAccordianChange(isExpanded, `pannel${items.id}`)
+                      handleAccordianChange(isExpanded, `panel${items.id}`)
                     }
                   >
                     <AccordionSummary
                       id={`panel${items.id}-header`}
-                      aria-control={`panel${items.id}-content`}
+                      aria-labelledby={`panel${items.id}-content`}
                       expandIcon={<ExpandMoreIcon />}
                     >
                       <Typography>{items.title}</Typography>
@@ -91,245 +131,60 @@ const Orders = () => {
                       </div>
                     </AccordionDetails>
                   </Accordion>
-                ))} */}
-                <Accordion
-                  expanded={expanded === "panel1"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel1")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel1-header"
-                    aria-controls="panel1-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 1</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div className={classes.inProgressBtn}>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel2"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel2")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel2-header"
-                    aria-controls="panel2-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 2</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div>
-                      <Button variant="outlined" sx={{ alignItems: "end" }}>
-                        In Progress
-                      </Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel3"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel3")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel3-header"
-                    aria-controls="panel3-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 3</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-
-                    <div>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
+                ))}
               </TabPanel>
-              <TabPanel value="2">
-                <Accordion
-                  expanded={expanded === "panel1"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel1")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel1-header"
-                    aria-controls="panel1-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 1</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div className={classes.inProgressBtn}>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel2"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel2")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel2-header"
-                    aria-controls="panel2-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 2</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div>
-                      <Button variant="outlined" sx={{ alignItems: "end" }}>
-                        In Progress
-                      </Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel3"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel3")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel3-header"
-                    aria-controls="panel3-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 3</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
 
-                    <div>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
+              <TabPanel value="2">
+                {inProgressObj.map((items) => (
+                  <Accordion
+                    key={items.id}
+                    expanded={expanded === `panel${items.id}`}
+                    onChange={(event, isExpanded) =>
+                      handleAccordianChange(isExpanded, `panel${items.id}`)
+                    }
+                  >
+                    <AccordionSummary
+                      id={`panel${items.id}-header`}
+                      aria-labelledby={`panel${items.id}-content`}
+                      expandIcon={<ExpandMoreIcon />}
+                    >
+                      <Typography>{items.title}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Divider />
+                      <Typography padding={2}>{items.description}</Typography>
+                      <div className={classes.inProgressBtn}>
+                        <Button variant="outlined">Delivered</Button>
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
+                ))}
               </TabPanel>
               <TabPanel value="3">
-                <Accordion
-                  expanded={expanded === "panel1"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel1")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel1-header"
-                    aria-controls="panel1-content"
-                    expandIcon={<ExpandMoreIcon />}
+                {deliveredObj.map((items) => (
+                  <Accordion
+                    key={items.id}
+                    expanded={expanded === `panel${items.id}`}
+                    onChange={(event, isExpanded) =>
+                      handleAccordianChange(isExpanded, `panel${items.id}`)
+                    }
                   >
-                    <Typography>Accordion 1</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div className={classes.inProgressBtn}>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel2"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel2")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel2-header"
-                    aria-controls="panel2-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 2</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-                    <div>
-                      <Button variant="outlined" sx={{ alignItems: "end" }}>
-                        In Progress
-                      </Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion
-                  expanded={expanded === "panel3"}
-                  onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, "panel3")
-                  }
-                >
-                  <AccordionSummary
-                    id="panel3-header"
-                    aria-controls="panel3-content"
-                    expandIcon={<ExpandMoreIcon />}
-                  >
-                    <Typography>Accordion 3</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Divider />
-                    <Typography padding={2}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Doloremque natus dolore magni deserunt ad amet enim ut qui
-                      quis accusamus.
-                    </Typography>
-
-                    <div>
-                      <Button variant="outlined">In Progress</Button>
-                    </div>
-                  </AccordionDetails>
-                </Accordion>
+                    <AccordionSummary
+                      id={`panel${items.id}-header`}
+                      aria-labelledby={`panel${items.id}-content`}
+                      expandIcon={<ExpandMoreIcon />}
+                    >
+                      <Typography>{items.title}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Divider />
+                      <Typography padding={2}>{items.description}</Typography>
+                      <div className={classes.inProgressBtn}>
+                        <Button variant="outlined">Done</Button>
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
+                ))}
               </TabPanel>
             </TabContext>
           </CardContent>
