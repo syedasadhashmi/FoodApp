@@ -33,7 +33,7 @@ const UserForm = () => {
         <Divider />
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6}>
               <TextField
                 label="First Name"
                 required
@@ -41,7 +41,7 @@ const UserForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6}>
               <TextField
                 label="Last Name"
                 required
@@ -49,7 +49,7 @@ const UserForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={12} md={4}>
               <TextField
                 label="Age"
                 required
@@ -58,7 +58,7 @@ const UserForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={12} md={4}>
               <TextField
                 id="outlined-select-Gennder"
                 select
@@ -75,7 +75,7 @@ const UserForm = () => {
                 ))}
               </TextField>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={12} md={4}>
               <TextField
                 label="Position"
                 required

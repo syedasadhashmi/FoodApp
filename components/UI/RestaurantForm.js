@@ -41,7 +41,7 @@ const RestaurantForm = () => {
         <Divider />
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 label="Restaurant Name"
                 required
@@ -49,7 +49,7 @@ const RestaurantForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 id="outlined-select-restaurantType"
                 select
@@ -75,7 +75,7 @@ const RestaurantForm = () => {
                 helperText="Write full address"
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <MuiPhoneNumber
                 label="Phone #"
                 defaultCountry={"pa"}
@@ -84,7 +84,7 @@ const RestaurantForm = () => {
                 variant="outlined"
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 label="Restaurant Email"
                 required

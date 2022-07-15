@@ -39,7 +39,7 @@ const MenuForm = () => {
         <Divider />
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6}>
               <TextField
                 label="Dish Name"
                 required
@@ -47,7 +47,7 @@ const MenuForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6} md={6}>
               <TextField
                 id="outlined-select-DishType"
                 select
@@ -64,7 +64,7 @@ const MenuForm = () => {
                 ))}
               </TextField>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <TextField
                 label="Dish Price"
                 required
@@ -74,16 +74,7 @@ const MenuForm = () => {
                 helperText="Enter dish price"
               />
             </Grid>
-            <Grid item xs={4}>
-              <TextField
-                label="Restaurant Name"
-                required
-                variant="outlined"
-                fullWidth
-                helperText="AutoFilled"
-              />
-            </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <TextField
                 label="Dish Id"
                 required
@@ -91,6 +82,15 @@ const MenuForm = () => {
                 fullWidth
                 type="Number"
                 helperText="Auto Generated"
+              />
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
+              <TextField
+                label="Restaurant Name"
+                required
+                variant="outlined"
+                fullWidth
+                helperText="AutoFilled"
               />
             </Grid>
             <Grid item xs={12}>
