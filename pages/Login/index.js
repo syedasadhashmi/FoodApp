@@ -14,8 +14,8 @@ const Login = () => {
   return (
     <>
       <Header />
-      <Grid container>
-        <Grid item xs={6}>
+      <Grid container className={classes.centerGrid}>
+        <Grid item xs={6} height="88vh" display={{ xs: "none", sm: "flex" }}>
           <picture>
             <img
               className={classes.loginImg}
@@ -24,7 +24,7 @@ const Login = () => {
             />
           </picture>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} height="88vh">
           <Container className={classes.tableStyle}>
             <Stack direction="column" spacing={3}>
               <div className={classes.center}>
