@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Header />
       <Container
-        sx={{ height: "83vh", marginTop: "20px", marginBottom: "20px" }}
+        sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}
       >
         <Typography variant="h3">Home</Typography>
       </Container>
