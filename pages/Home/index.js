@@ -1,7 +1,5 @@
 import { Container, Typography } from "@mui/material";
 import Layout from "../../components/Layout/Layout";
-import Footer from "../../components/UI/Footer";
-import Header from "../../components/UI/Header";
 
 const Home = () => {
   return (

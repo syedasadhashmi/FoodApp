@@ -1,9 +1,6 @@
 import React from "react";
 import DataTable from "../../components/UI/DataTable";
-import Footer from "../../components/UI/Footer";
-import Header from "../../components/UI/Header";
 import { IconButton } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 

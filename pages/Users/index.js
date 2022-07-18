@@ -1,8 +1,7 @@
 import { IconButton } from "@mui/material";
-import Header from "../../components/UI/Header";
-import Footer from "../../components/UI/Footer";
 import DataTable from "../../components/UI/DataTable";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Layout from "../../components/Layout/Layout";
 export default function Users() {
   const rowData = [
     {
@@ -143,10 +142,8 @@ export default function Users() {
     link: "../Users/addUser",
   };
   return (
-    <>
-      <Header />
+    <Layout>
       <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
-      <Footer />
-    </>
+    </Layout>
   );
 }
