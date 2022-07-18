@@ -1,13 +1,10 @@
-import Header from "../../components/UI/Header";
-import Footer from "../../components/UI/Footer";
 import UserForm from "../../components/UI/UserForm";
+import Layout from "../../components/Layout/Layout";
 const addUser = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <UserForm />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

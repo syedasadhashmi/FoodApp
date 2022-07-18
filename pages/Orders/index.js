@@ -1,6 +1,5 @@
-import Header from "../../components/UI/Header";
-import Footer from "../../components/UI/Footer";
 import Accordian from "../../components/UI/Accordian";
+import Layout from "../../components/Layout/Layout";
 const inPendingObj = [
   {
     id: 1,
@@ -63,16 +62,13 @@ const deliveredObj = [
 ];
 const Orders = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <Accordian
         inPendingObj={inPendingObj}
         inProgressObj={inProgressObj}
         deliveredObj={deliveredObj}
       />
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

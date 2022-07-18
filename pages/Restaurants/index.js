@@ -3,8 +3,7 @@ import { IconButton } from "@mui/material";
 import DataTable from "../../components/UI/DataTable";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Footer from "../../components/UI/Footer";
-import Header from "../../components/UI/Header";
+import Layout from "../../components/Layout/Layout";
 import Link from "next/link";
 
 const rowData = [
@@ -139,22 +138,7 @@ const columnsData = [
     renderCell: (cellValues) => {
       return (
         <>
-          {/* <IconButton
-            variant="contained"
-            color="primary"
-            // onClick={(event) => {
-            //   handleClick(event, cellValues);
-            // }}
-          >
-            <EditIcon />
-          </IconButton> */}
-          <IconButton
-            variant="contained"
-            color="primary"
-            // onClick={(event) => {
-            //   handleClick(event, cellValues);
-            // }}
-          >
+          <IconButton variant="contained" color="primary">
             <Link href="../Menu/">
               <RestaurantMenuIcon />
             </Link>
@@ -170,11 +154,9 @@ const dataObj = {
 };
 const Restaurants = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

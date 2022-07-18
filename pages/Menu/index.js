@@ -5,6 +5,7 @@ import Header from "../../components/UI/Header";
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Layout from "../../components/Layout/Layout";
 
 const rowData = [
   {
@@ -123,11 +124,9 @@ const dataObj = {
 };
 const Menu = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

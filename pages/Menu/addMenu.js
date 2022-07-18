@@ -1,15 +1,12 @@
 import React from "react";
-import Footer from "../../components/UI/Footer";
-import Header from "../../components/UI/Header";
+import Layout from "../../components/Layout/Layout";
 import MenuForm from "../../components/UI/MenuForm";
 
 const addMenu = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <MenuForm />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
