@@ -107,6 +107,7 @@ const MenuForm = () => {
                   onChange={dishPriceHandler}
                   variant="outlined"
                   type="number"
+                  InputProps={{ inputProps: { min: 2 } }}
                   fullWidth
                   helperText="Enter dish price"
                 />
