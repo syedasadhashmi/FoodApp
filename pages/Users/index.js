@@ -126,9 +126,7 @@ export default function Users() {
             <IconButton
               variant="contained"
               color="primary"
-              // onClick={(event) => {
-              //   handleClick(event, cellValues);
-              // }}
+              onClick={deleteHandler}
             >
               <DeleteIcon />
             </IconButton>
@@ -140,6 +138,9 @@ export default function Users() {
   const dataObj = {
     title: "Users",
     link: "../Users/addUser",
+  };
+  const deleteHandler = (event) => {
+    console.log(event.target);
   };
   return (
     <Layout>

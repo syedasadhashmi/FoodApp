@@ -1,12 +1,12 @@
-import { Box } from "@mui/material";
+import { Box, AppBar } from "@mui/material";
 import classes from "./Footer.module.css";
 const Footer = () => {
   return (
-    <footer className={classes.footer}>
+    <AppBar position="static">
       <Box padding="10px" className={classes.footerStyle}>
         <span>Footer</span>
       </Box>
-    </footer>
+    </AppBar>
   );
 };
 
