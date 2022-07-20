@@ -10,36 +10,23 @@ import {
   Grid,
   TextField,
 } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
 import MuiPhoneNumber from "material-ui-phone-number";
 import Link from "next/link";
 import PopUp from "./PopUp";
-const RestaurantTypeObj = [
-  {
-    value: "Chinese",
-  },
-  {
-    value: "Italian",
-  },
-  {
-    value: "Turkish",
-  },
-];
+
 const RestaurantForm = () => {
-  const [resType, setResType] = useState("Italian");
   const [phone, setPhone] = useState("");
   const [restaurantName, setRestaurantName] = useState("");
   const [address, setAddress] = useState("");
   const [restaurantEmail, setRestaurantEmail] = useState("");
   const [submit, setSubmit] = useState(false);
+  const [password, setPassword] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
 
   const handleNumOnChange = (event) => {
     setPhone(event);
   };
 
-  const handleChange = (event) => {
-    setResType(event.target.value);
-  };
   const restaurantNameHandler = (e) => {
     setRestaurantName(e.target.value);
   };
@@ -48,6 +35,12 @@ const RestaurantForm = () => {
   };
   const restaurantEmailHandler = (event) => {
     setRestaurantEmail(event.target.value);
+  };
+  const restaurantPasswordHandler = (event) => {
+    setPassword(event.target.value);
+  };
+  const thumbnailHandler = (event) => {
+    setThumbnail(event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -79,30 +72,31 @@ const RestaurantForm = () => {
                   value={restaurantName}
                   fullWidth
                   onChange={restaurantNameHandler}
-                  onInput={(e) => {
-                    console.log(e.target.value);
-                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  id="outlined-select-restaurantType"
-                  select
+                  label="Restaurant Email"
                   required
-                  label="Select"
-                  value={resType}
-                  onChange={handleChange}
-                  helperText="Please select Restaurant Type"
+                  variant="outlined"
+                  onChange={restaurantEmailHandler}
+                  value={restaurantEmail}
                   fullWidth
-                >
-                  {RestaurantTypeObj.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.value}
-                    </MenuItem>
-                  ))}
-                </TextField>
+                  type="email"
+                />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  label="Password"
+                  required
+                  type="password"
+                  variant="outlined"
+                  onChange={restaurantPasswordHandler}
+                  value={password}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
                 <TextField
                   label="Address"
                   required
@@ -126,13 +120,13 @@ const RestaurantForm = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  label="Restaurant Email"
+                  label="Thumbnail"
                   required
                   variant="outlined"
-                  onChange={restaurantEmailHandler}
-                  value={restaurantEmail}
+                  onChange={thumbnailHandler}
+                  value={thumbnail}
                   fullWidth
-                  type="email"
+                  helperText="Write thumbnail text"
                 />
               </Grid>
             </Grid>

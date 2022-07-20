@@ -1,12 +1,11 @@
 import "../styles/globals.css";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { orange } from "@mui/material/colors";
 
 function MyApp({ Component, pageProps }) {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#f44336",
+        main: "#F24C4C",
         light: "#ff7961",
         dark: "#ba000d",
       },

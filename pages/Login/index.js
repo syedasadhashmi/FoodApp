@@ -9,12 +9,16 @@ import {
 import classes from "./login.module.css";
 import { useState } from "react";
 import PopUp from "../../components/UI/PopUp";
-import Layout from "../../components/Layout/Layout";
+import axios from "axios";
 // import Image from "next/image";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const session_url = `http://10.4.40.243:8080/oauth/token?grant_type=password&username=${email}&password=${password}`;
+  const user = "tacky";
+  const pass = "ashdot";
+
   const passwordHandler = (e) => {
     setPassword(e.target.value);
   };
@@ -22,6 +26,23 @@ const Login = () => {
     setEmail(e.target.value);
   };
   const submitHandler = (e) => {
+    axios
+      .post(
+        session_url,
+        {},
+        {
+          auth: {
+            username: user,
+            password: pass,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
     setIsSubmit(true);
     e.preventDefault();
     setEmail("");
