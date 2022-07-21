@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IconButton } from "@mui/material";
 import DataTable from "../../components/UI/DataTable";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
@@ -6,80 +6,80 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 import Link from "next/link";
 
-const rowData = [
-  {
-    id: 1,
-    RestaurantName: "Ginsoy",
-    RestaurantType: "Chinese",
-    RestaurantAddress: "Block F North Nazimabad",
-    PhoneNumber: "0900786601",
-    Email: "www.ginsoy.com",
-  },
-  {
-    id: 2,
-    RestaurantName: "Pompei",
-    RestaurantType: "Italian",
-    RestaurantAddress: "Zamzama Block k",
-    PhoneNumber: "0900786601",
-    Email: "www.Pompei.com",
-  },
-  {
-    id: 3,
-    RestaurantName: "Solen",
-    RestaurantType: "Turkish",
-    RestaurantAddress: "Dolmen Mall Clifton",
-    PhoneNumber: "0900786601",
-    Email: "www.Solen.com",
-  },
-  {
-    id: 4,
-    RestaurantName: "Zeytin",
-    RestaurantType: "Turkish",
-    RestaurantAddress: "Safa Residency Shaheed-e-Millat",
-    PhoneNumber: "0900786601",
-    Email: "www.zeytin.com",
-  },
-  {
-    id: 5,
-    RestaurantName: "Pomo",
-    RestaurantType: "Italian",
-    RestaurantAddress: "44c lane",
-    PhoneNumber: "0900786601",
-    Email: "www.pomo.com",
-  },
-  {
-    id: 6,
-    RestaurantName: "Amichi Pizeria",
-    RestaurantType: "Italian",
-    RestaurantAddress: "44c lane",
-    PhoneNumber: "0900786601",
-    Email: "www.Amichi.com",
-  },
-  {
-    id: 7,
-    RestaurantName: "Bam-Bou",
-    RestaurantType: "Chinese",
-    RestaurantAddress: "D-61 North Nazimabad",
-    PhoneNumber: "0900786601",
-    Email: "www.BamBou.com",
-  },
-  {
-    id: 8,
-    RestaurantName: "Imperial court",
-    RestaurantType: "Chinese",
-    RestaurantAddress: "D-61 North Nazimabad",
-    PhoneNumber: "0900786601",
-    Email: "www.imperialCourt.com",
-  },
-  {
-    id: 9,
-    RestaurantName: "Golden Dragon",
-    RestaurantType: "Chinese",
-    RestaurantAddress: "F-31 Clifton",
-    PhoneNumber: "0900786601",
-    Email: "www.GoldenDragon.com",
-  },
-];
+// const rowData = [
+//   {
+//     id: 1,
+//     RestaurantName: "Ginsoy",
+//     RestaurantType: "Chinese",
+//     RestaurantAddress: "Block F North Nazimabad",
+//     PhoneNumber: "0900786601",
+//     Email: "www.ginsoy.com",
+//   },
+//   {
+//     id: 2,
+//     RestaurantName: "Pompei",
+//     RestaurantType: "Italian",
+//     RestaurantAddress: "Zamzama Block k",
+//     PhoneNumber: "0900786601",
+//     Email: "www.Pompei.com",
+//   },
+//   {
+//     id: 3,
+//     RestaurantName: "Solen",
+//     RestaurantType: "Turkish",
+//     RestaurantAddress: "Dolmen Mall Clifton",
+//     PhoneNumber: "0900786601",
+//     Email: "www.Solen.com",
+//   },
+//   {
+//     id: 4,
+//     RestaurantName: "Zeytin",
+//     RestaurantType: "Turkish",
+//     RestaurantAddress: "Safa Residency Shaheed-e-Millat",
+//     PhoneNumber: "0900786601",
+//     Email: "www.zeytin.com",
+//   },
+//   {
+//     id: 5,
+//     RestaurantName: "Pomo",
+//     RestaurantType: "Italian",
+//     RestaurantAddress: "44c lane",
+//     PhoneNumber: "0900786601",
+//     Email: "www.pomo.com",
+//   },
+//   {
+//     id: 6,
+//     RestaurantName: "Amichi Pizeria",
+//     RestaurantType: "Italian",
+//     RestaurantAddress: "44c lane",
+//     PhoneNumber: "0900786601",
+//     Email: "www.Amichi.com",
+//   },
+//   {
+//     id: 7,
+//     RestaurantName: "Bam-Bou",
+//     RestaurantType: "Chinese",
+//     RestaurantAddress: "D-61 North Nazimabad",
+//     PhoneNumber: "0900786601",
+//     Email: "www.BamBou.com",
+//   },
+//   {
+//     id: 8,
+//     RestaurantName: "Imperial court",
+//     RestaurantType: "Chinese",
+//     RestaurantAddress: "D-61 North Nazimabad",
+//     PhoneNumber: "0900786601",
+//     Email: "www.imperialCourt.com",
+//   },
+//   {
+//     id: 9,
+//     RestaurantName: "Golden Dragon",
+//     RestaurantType: "Chinese",
+//     RestaurantAddress: "F-31 Clifton",
+//     PhoneNumber: "0900786601",
+//     Email: "www.GoldenDragon.com",
+//   },
+// ];
 const columnsData = [
   { field: "id", headerName: "id", width: 100 },
   {
@@ -152,10 +152,21 @@ const dataObj = {
   title: "Restaurants",
   link: "../Restaurants/addRestaurants",
 };
+import { useSelector, useDispatch } from "react-redux";
+import { restaurants } from "../../Redux/Restaurants/restaurantsActions";
 const Restaurants = () => {
+  const dispatch = useDispatch();
+  const { restaurants } = useSelector((items) => items.restaurantsReducer);
+  useEffect(() => {
+    dispatch(restaurants());
+  }, []);
   return (
     <Layout>
-      <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
+      <DataTable
+        props={restaurants}
+        columnsData={columnsData}
+        dataObj={dataObj}
+      />
     </Layout>
   );
 };

@@ -65,7 +65,7 @@ const RestaurantForm = () => {
         latitude: latitude,
       })
       .then(function (response) {
-        console.log(response.data);
+        console.log(response);
       })
       .catch(function (error) {
         console.log(error.message);
