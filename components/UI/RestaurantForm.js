@@ -13,6 +13,7 @@ import {
 import MuiPhoneNumber from "material-ui-phone-number";
 import Link from "next/link";
 import PopUp from "./PopUp";
+import axios from "axios";
 
 const RestaurantForm = () => {
   const [phone, setPhone] = useState("");
@@ -22,7 +23,9 @@ const RestaurantForm = () => {
   const [submit, setSubmit] = useState(false);
   const [password, setPassword] = useState("");
   const [thumbnail, setThumbnail] = useState("");
-
+  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const session_url = "http://10.4.40.243:8080/user-service/vendor/register";
   const handleNumOnChange = (event) => {
     setPhone(event);
   };
@@ -42,15 +45,42 @@ const RestaurantForm = () => {
   const thumbnailHandler = (event) => {
     setThumbnail(event.target.value);
   };
+  const longitudeHandler = (event) => {
+    setLongitude(event.target.value);
+  };
+  const latitudeHandler = (event) => {
+    setLatitude(event.target.value);
+  };
 
   const handleSubmit = (event) => {
+    axios
+      .post(session_url, {
+        email: restaurantEmail,
+        password: password,
+        restaurantTitle: restaurantName,
+        contactNumber: phone,
+        thumbnail: thumbnail,
+        address: address,
+        longitude: longitude,
+        latitude: latitude,
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
     setSubmit(true);
     event.preventDefault();
-    console.log(phone, address, restaurantName, resType, restaurantEmail);
+
     setPhone("");
     setRestaurantEmail("");
     setRestaurantName("");
     setAddress("");
+    setThumbnail("");
+    setLatitude("");
+    setLongitude("");
+
     setTimeout(() => {
       setSubmit(false);
     }, 1000);
@@ -127,6 +157,30 @@ const RestaurantForm = () => {
                   value={thumbnail}
                   fullWidth
                   helperText="Write thumbnail text"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Longitude"
+                  required
+                  variant="outlined"
+                  type="number"
+                  onChange={longitudeHandler}
+                  value={longitude}
+                  fullWidth
+                  helperText="Write longitude"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Latitude"
+                  required
+                  variant="outlined"
+                  type="number"
+                  onChange={latitudeHandler}
+                  value={latitude}
+                  fullWidth
+                  helperText="Write latitude"
                 />
               </Grid>
             </Grid>
