@@ -80,13 +80,12 @@ const dataObj = {
   title: "Restaurants",
   link: "../Restaurants/addRestaurants",
 };
-import data from "../../data.json";
 const Restaurants = () => {
   const { restaurants } = useSelector((items) => items.restaurantsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("useeffect");
-    dispatch(fetchRestaurants(data));
+    dispatch(fetchRestaurants());
   }, []);
   return (
     <Layout>
