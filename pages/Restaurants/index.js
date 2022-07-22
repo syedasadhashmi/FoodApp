@@ -9,24 +9,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchRestaurants } from "../../Redux/Restaurants/restaurantsActions";
 
 const columnsData = [
-  { field: "id", headerName: "id", width: 100 },
+  { field: "thumbnail", headerName: "Thumbnail", width: 100 },
   {
-    field: "RestaurantName",
+    field: "restaurantTitle",
     headerName: "RestaurantName",
     width: 150,
     editable: true,
   },
-  { field: "RestaurantType", headerName: "RestaurantType", width: 150 },
-  { field: "RestaurantAddress", headerName: "RestaurantAddress", width: 150 },
+  { field: "address", headerName: "Address", width: 200 },
   {
-    field: "PhoneNumber",
-    headerName: "PhoneNumber",
+    field: "contactNumber",
+    headerName: "ContactNumber",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 200,
   },
   {
-    field: "Email",
+    field: "email",
     headerName: "Email",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
