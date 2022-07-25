@@ -1,6 +1,6 @@
 [
   {
-    "id": "suleman@gmail.com",
+    "id": 1,
     "thumbnail": "Image",
     "restaurantTitle": "Kababjees",
     "address": ["Defence View Phase 2"],
@@ -8,7 +8,7 @@
     "email": "suleman@gmail.com"
   },
   {
-    "id": "farrukh@gmail.com",
+    "id": 2,
     "thumbnail": "Image",
     "restaurantTitle": "Kolachi",
     "address": ["DHA Phase 8"],
