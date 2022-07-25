@@ -5,21 +5,21 @@ import {
   TextField,
   Button,
   Typography,
-} from "@mui/material";
-import classes from "./login.module.css";
-import Home from "../Home";
-import { useState } from "react";
-import axios from "axios";
-import ErrorPopup from "../../components/UI/ErrorPopup";
+} from '@mui/material';
+import classes from './login.module.css';
+import Home from '../Home';
+import { useState } from 'react';
+import axios from 'axios';
+import ErrorPopup from '../../components/UI/ErrorPopup';
 // import Image from "next/image";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
   const [isErrorPop, setIsErrorPop] = useState(true);
   const session_url = `http://10.4.40.243:8080/oauth/token?grant_type=password&username=${email}&password=${password}`;
-  const user = "tacky";
-  const pass = "ashdot";
+  const user = 'tacky';
+  const pass = 'ashdot';
 
   const passwordHandler = (e) => {
     setPassword(e.target.value);
@@ -52,8 +52,8 @@ const Login = () => {
         }, 1000);
       });
     e.preventDefault();
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
   return (
     <>
@@ -64,8 +64,8 @@ const Login = () => {
           <Grid
             item
             xs={8}
-            height={"100vh"}
-            display={{ xs: "none", sm: "block" }}
+            height={'100vh'}
+            display={{ xs: 'none', sm: 'block' }}
           >
             <picture>
               <img
