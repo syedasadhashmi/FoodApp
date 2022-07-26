@@ -11,6 +11,7 @@ import {
   fetchRestaurantsData,
 } from '../../Redux/Restaurants/restaurantsActions';
 import data from '../../Redux/Restaurants/data.json';
+import { fetchMenu } from '../../Redux/Menu/menuActions';
 
 const dataObj = {
   title: 'Restaurants',
@@ -86,7 +87,11 @@ const Restaurants = () => {
         return (
           <>
             <Link href={`../Menu/${cellValues.id}`}>
-              <IconButton variant="contained" color="primary">
+              <IconButton
+                variant="contained"
+                color="primary"
+                onClick={() => dispatch(fetchMenu())}
+              >
                 <RestaurantMenuIcon />
               </IconButton>
             </Link>

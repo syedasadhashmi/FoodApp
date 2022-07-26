@@ -12,12 +12,12 @@ const restaurantsReducer = (state = initialState, action) => {
         loading: true,
         restaurants: action.payload,
       };
-    case FETCH_RESTAURANTS_SUCCES:
-      return {
-        loading: false,
-        restaurants: action.payload,
-        error: '',
-      };
+    // case FETCH_RESTAURANTS_SUCCES:
+    //   return {
+    //     loading: false,
+    //     restaurants: action.payload,
+    //     error: '',
+    //   };
     case FETCH_RESTAURANTS_FAILURE:
       return {
         loading: false,
