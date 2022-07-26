@@ -87,11 +87,7 @@ const Restaurants = () => {
         return (
           <>
             <Link href={`../Menu/${cellValues.id}`}>
-              <IconButton
-                variant="contained"
-                color="primary"
-                onClick={() => dispatch(fetchMenu())}
-              >
+              <IconButton variant="contained" color="primary">
                 <RestaurantMenuIcon />
               </IconButton>
             </Link>
@@ -102,7 +98,11 @@ const Restaurants = () => {
   ];
   return (
     <Layout>
-      <DataTable props={data} columnsData={columnsData} dataObj={dataObj} />
+      <DataTable
+        props={restaurants ? restaurants : []}
+        columnsData={columnsData}
+        dataObj={dataObj}
+      />
     </Layout>
   );
 };

@@ -1,9 +1,13 @@
-import React, { Children } from 'react';
+import React, { useEffect } from 'react';
 import DataTable from '../../components/UI/DataTable';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Layout from '../../components/Layout/Layout';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { fetchMenu } from '../../Redux/Menu/menuActions';
+import data2 from '../../Redux/Menu/data2.json';
+
 // const rowData = [
 //   {
 //     id: 'description',
@@ -127,12 +131,19 @@ const dataObj = {
   link: '../Menu/addMenu',
 };
 const Menu = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  console.log(id);
   const { fetchData } = useSelector((state) => state.menuReducer);
   console.log(fetchData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMenu());
+  }, []);
   return (
     <Layout>
       <DataTable
-        props={fetchData}
+        props={fetchData ? fetchData : []}
         columnsData={columnsData}
         dataObj={dataObj}
       />
