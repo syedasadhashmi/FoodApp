@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import DataTable from '../../components/UI/DataTable';
-import { IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Layout from '../../components/Layout/Layout';
-import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import { fetchMenu } from '../../Redux/Menu/menuActions';
-import data2 from '../../Redux/Menu/data2.json';
+import React, { useEffect } from "react";
+import DataTable from "../../components/UI/DataTable";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Layout from "../../components/Layout/Layout";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { fetchMenu } from "../../Redux/Menu/menuActions";
+import data2 from "../../Redux/Menu/data2.json";
+import axios from "axios";
 
 // const rowData = [
 //   {
@@ -95,10 +96,10 @@ const columnsData = [
   //   sortable: false,
   //   width: 250,
   // },
-  { field: 'description', headerName: 'DishName', width: 250 },
-  { field: 'image', headerName: 'image', width: 250 },
+  { field: "description", headerName: "DishName", width: 250 },
+  { field: "image", headerName: "image", width: 250 },
   {
-    field: 'Action',
+    field: "Action",
     width: 150,
     renderCell: (cellValues) => {
       return (
@@ -127,8 +128,8 @@ const columnsData = [
   },
 ];
 const dataObj = {
-  title: 'Menu',
-  link: '../Menu/addMenu',
+  title: "Menu",
+  link: "../Menu/addMenu",
 };
 const Menu = () => {
   const router = useRouter();
@@ -137,8 +138,17 @@ const Menu = () => {
   const { fetchData } = useSelector((state) => state.menuReducer);
   console.log(fetchData);
   const dispatch = useDispatch();
+  // const session_url = `http://10.4.40.62:8080/vendor-service/menuGroup/restaurant?vendorId=${id}`;
   useEffect(() => {
-    dispatch(fetchMenu());
+    // axios
+    //   .get(session_url, {})
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error.message);
+    //   });
+    dispatch(fetchMenu(id));
   }, []);
   return (
     <Layout>

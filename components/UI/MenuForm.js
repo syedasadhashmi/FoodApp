@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -9,30 +9,30 @@ import {
   Divider,
   Grid,
   TextField,
-} from '@mui/material';
-import MenuItem from '@mui/material/MenuItem';
-import Link from 'next/link';
-import PopUp from './PopUp';
+} from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import Link from "next/link";
+import PopUp from "./PopUp";
 const DishTypeObj = [
   {
-    value: 'Chinese',
+    value: "Chinese",
   },
   {
-    value: 'Italian',
+    value: "Italian",
   },
   {
-    value: 'Turkish',
+    value: "Turkish",
   },
 ];
 const MenuForm = () => {
-  const [dishType, setDishType] = useState('Chinese');
-  const [value, setValue] = useState('');
-  const [dishName, setDishName] = useState('');
-  const [dishPrice, setDishPrice] = useState('');
-  const [dishId, setDishId] = useState('');
-  const [restaurantName, setRestaurantName] = useState('');
+  const [dishType, setDishType] = useState("Chinese");
+  const [value, setValue] = useState("");
+  const [dishName, setDishName] = useState("");
+  const [dishPrice, setDishPrice] = useState("");
+  const [dishId, setDishId] = useState("");
+  const [restaurantName, setRestaurantName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = '';
+  const session_url = "http://10.4.40.62:8080/vendor-service/menuGroup?id=1";
 
   const handleMultiLineChange = (event) => {
     setValue(event.target.value);
@@ -67,17 +67,17 @@ const MenuForm = () => {
       });
     setIsSubmit(true);
     e.preventDefault();
-    setRestaurantName('');
-    setDishId('');
-    setDishPrice('');
-    setDishName('');
-    setValue('');
+    setRestaurantName("");
+    setDishId("");
+    setDishPrice("");
+    setDishName("");
+    setValue("");
     setTimeout(() => {
       setIsSubmit(false);
     }, 1000);
   };
   return (
-    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
+    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
         <form onSubmit={submitHandler}>
           <CardHeader title="Add Menu" />
@@ -162,7 +162,7 @@ const MenuForm = () => {
             </Grid>
           </CardContent>
           <Divider />
-          <CardActions sx={{ float: 'right', marginRight: '10px' }}>
+          <CardActions sx={{ float: "right", marginRight: "10px" }}>
             <Link href="../Menu">
               <Button variant="outlined">Cancel</Button>
             </Link>

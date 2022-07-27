@@ -2,8 +2,8 @@ import {
   FETCH_RESTAURANTS,
   FETCH_RESTAURANTS_SUCCES,
   FETCH_RESTAURANTS_FAILURE,
-} from './restaurantsTypes';
-const initialState = { restaurants: [], loading: false, error: '' };
+} from "./restaurantsTypes";
+const initialState = { restaurants: [], loading: false, error: "" };
 
 const restaurantsReducer = (state = initialState, action) => {
   switch (action.type) {
