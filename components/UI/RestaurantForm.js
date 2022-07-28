@@ -25,7 +25,7 @@ const RestaurantForm = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
-  const session_url = "http://10.4.40.62:8080/user-service/vendor/register";
+  const session_url = "http://10.4.41.213:8080/user-service/vendor/register";
   const handleNumOnChange = (event) => {
     setPhone(event);
   };

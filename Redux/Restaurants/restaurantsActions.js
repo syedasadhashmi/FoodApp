@@ -7,7 +7,7 @@ import {
 export const fetchRestaurants = () => {
   return async (dispatch) => {
     await axios
-      .get("http://10.4.40.62:8080/vendor-service/vendor/vendors") //fake api
+      .get("http://10.4.41.213:8080/vendor-service/vendor/vendors") //fake api
       .then((response) => {
         dispatch({ type: FETCH_RESTAURANTS, payload: response.data }); //directly passing data from data.json
       })

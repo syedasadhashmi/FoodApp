@@ -1,8 +1,8 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import restaurantsReducer from './Restaurants/restaurantsReducer';
-import menuReducer from './Menu/menuReducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import restaurantsReducer from "./Restaurants/restaurantsReducer";
+import menuReducer from "./MenuGroup/menuReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 const root = combineReducers({
   restaurantsReducer: restaurantsReducer,
   menuReducer: menuReducer,

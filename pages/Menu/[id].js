@@ -5,8 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { fetchMenu } from "../../Redux/Menu/menuActions";
-import data2 from "../../Redux/Menu/data2.json";
+import { fetchMenu } from "../../Redux/MenuGroup/menuActions";
+import data2 from "../../Redux/MenuGroup/data2.json";
 import axios from "axios";
 
 // const rowData = [
@@ -97,7 +97,7 @@ const columnsData = [
   //   width: 250,
   // },
   { field: "description", headerName: "DishName", width: 250 },
-  { field: "image", headerName: "image", width: 250 },
+  { field: "thumbnail", headerName: "thumbnail", width: 250 },
   {
     field: "Action",
     width: 150,

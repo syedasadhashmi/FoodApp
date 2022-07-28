@@ -27,12 +27,12 @@ const DishTypeObj = [
 const MenuForm = () => {
   const [dishType, setDishType] = useState("Chinese");
   const [value, setValue] = useState("");
-  const [dishName, setDishName] = useState("");
+  const [dishGroup, setDishGroup] = useState("");
   const [dishPrice, setDishPrice] = useState("");
   const [dishId, setDishId] = useState("");
-  const [restaurantName, setRestaurantName] = useState("");
+  const [restaurantImage, setRestaurantImage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = "http://10.4.40.62:8080/vendor-service/menuGroup?id=1";
+  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup?id=1";
 
   const handleMultiLineChange = (event) => {
     setValue(event.target.value);
@@ -40,8 +40,8 @@ const MenuForm = () => {
   const handleChange = (event) => {
     setDishType(event.target.value);
   };
-  const dishNameHandler = (event) => {
-    setDishName(event.target.value);
+  const dishGroupHandler = (event) => {
+    setDishGroup(event.target.value);
   };
   const dishPriceHandler = (event) => {
     setDishPrice(event.target.value);
@@ -49,14 +49,14 @@ const MenuForm = () => {
   const dishIdHandler = (event) => {
     setDishId(event.target.value);
   };
-  const restaurantNameHandler = (event) => {
-    setRestaurantName(event.target.value);
+  const restaurantImageHandler = (event) => {
+    setRestaurantImage(event.target.value);
   };
 
   const submitHandler = (e) => {
     axios
       .post(session_url, {
-        description: dishName,
+        description: dishGroup,
         image: restaurantName,
       })
       .then(function (response) {
@@ -80,21 +80,21 @@ const MenuForm = () => {
     <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
         <form onSubmit={submitHandler}>
-          <CardHeader title="Add Menu" />
+          <CardHeader title="Add Menu Group" />
           <Divider />
           <CardContent>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} md={6}>
+              <Grid item xs={12}>
                 <TextField
-                  label="Dish Name"
+                  label="Dish Group"
                   required
-                  value={dishName}
-                  onChange={dishNameHandler}
+                  value={dishGroup}
+                  onChange={dishGroupHandler}
                   variant="outlined"
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={6}>
+              {/* <Grid item xs={12} sm={6} md={6}>
                 <TextField
                   id="outlined-select-DishType"
                   select
@@ -110,8 +110,8 @@ const MenuForm = () => {
                     </MenuItem>
                   ))}
                 </TextField>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
+              </Grid> */}
+              {/* <Grid item xs={12} sm={6} md={4}>
                 <TextField
                   label="Dish Price"
                   required
@@ -123,8 +123,8 @@ const MenuForm = () => {
                   fullWidth
                   helperText="Enter dish price"
                 />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
+              </Grid> */}
+              {/* <Grid item xs={12} >
                 <TextField
                   label="Dish Id"
                   required
@@ -135,19 +135,19 @@ const MenuForm = () => {
                   type="Number"
                   helperText="Auto Generated"
                 />
-              </Grid>
-              <Grid item xs={12} sm={12} md={4}>
+              </Grid> */}
+              <Grid item xs={12}>
                 <TextField
-                  label="Restaurant Name"
+                  label="Image"
                   required
                   variant="outlined"
-                  value={restaurantName}
-                  onChange={restaurantNameHandler}
+                  value={restaurantImage}
+                  onChange={restaurantImageHandler}
                   fullWidth
-                  helperText="AutoFilled"
+                  helperText="Image URL"
                 />
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   id="outlined-multiline-flexible"
                   label="Description"
@@ -158,7 +158,7 @@ const MenuForm = () => {
                   fullWidth
                   onChange={handleMultiLineChange}
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
           </CardContent>
           <Divider />

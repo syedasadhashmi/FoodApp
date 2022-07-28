@@ -11,7 +11,6 @@ import {
   fetchRestaurantsData,
 } from "../../Redux/Restaurants/restaurantsActions";
 import data from "../../Redux/Restaurants/data.json";
-import { fetchMenu } from "../../Redux/Menu/menuActions";
 
 const dataObj = {
   title: "Restaurants",
@@ -30,11 +29,11 @@ const Restaurants = () => {
   console.log(loading);
   console.log(error);
   const columnsData = [
-    { field: "thumbnail", headerName: "Thumbnail", width: 100 },
+    { field: "thumbnail", headerName: "Thumbnail", width: 200 },
     {
       field: "restaurantTitle",
       headerName: "RestaurantName",
-      width: 150,
+      width: 200,
       editable: true,
     },
     { field: "address", headerName: "Address", width: 200 },

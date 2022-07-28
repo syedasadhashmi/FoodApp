@@ -7,7 +7,7 @@ export const fetchMenu = (id) => {
   return async (dispatch) => {
     await axios
       .get(
-        `http://10.4.40.62:8080/vendor-service/menuGroup/restaurant?vendorId=${id}`
+        `http://10.4.41.213:8080/vendor-service/menuGroup/restaurant?vendorId=${id}`
       ) //fake api
       .then((response) => {
         dispatch({ type: FETCH_MENU, payload: response.data }); //directly passing data from data.json
