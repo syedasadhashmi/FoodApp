@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "image": "https://kfoods.com/OGImages/chicken%20broast%20hot.png",
+
+    "description": "Chicken Broast",
+
+    "price": 380.0,
+
+    "onDisplay": true,
+
+    "categories": []
+  },
+
+  {
+    "id": 2,
+    "image": "https://recipefairy.com/wp-content/uploads/2020/08/kfc-zinger-burger.jpg",
+
+    "description": "Zinger Burger",
+
+    "price": 380.0,
+
+    "onDisplay": true,
+
+    "categories": []
+  }
+]

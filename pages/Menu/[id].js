@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import { fetchMenu } from "../../Redux/MenuGroup/menuActions";
 import data2 from "../../Redux/MenuGroup/data2.json";
 import axios from "axios";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import Link from "next/link";
 
 // const rowData = [
 //   {
@@ -126,9 +128,25 @@ const columnsData = [
       );
     },
   },
+  {
+    field: "Add MenuItems",
+    width: 150,
+    renderCell: (cellValues) => {
+      console.log(cellValues.id);
+      return (
+        <>
+          <Link href={`../MenuItems/${cellValues.id}`}>
+            <IconButton variant="contained" color="primary">
+              <MenuBookIcon />
+            </IconButton>
+          </Link>
+        </>
+      );
+    },
+  },
 ];
 const dataObj = {
-  title: "Menu",
+  title: "Menu Group",
   link: "../Menu/addMenu",
 };
 const Menu = () => {
@@ -138,16 +156,7 @@ const Menu = () => {
   const { fetchData } = useSelector((state) => state.menuReducer);
   console.log(fetchData);
   const dispatch = useDispatch();
-  // const session_url = `http://10.4.40.62:8080/vendor-service/menuGroup/restaurant?vendorId=${id}`;
   useEffect(() => {
-    // axios
-    //   .get(session_url, {})
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error.message);
-    //   });
     dispatch(fetchMenu(id));
   }, []);
   return (

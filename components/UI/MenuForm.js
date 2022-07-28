@@ -13,6 +13,7 @@ import {
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import PopUp from "./PopUp";
+import axios from "axios";
 const DishTypeObj = [
   {
     value: "Chinese",
@@ -32,7 +33,7 @@ const MenuForm = () => {
   const [dishId, setDishId] = useState("");
   const [restaurantImage, setRestaurantImage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup?id=1";
+  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup/?id=1";
 
   const handleMultiLineChange = (event) => {
     setValue(event.target.value);
@@ -57,7 +58,7 @@ const MenuForm = () => {
     axios
       .post(session_url, {
         description: dishGroup,
-        image: restaurantName,
+        thumbnail: restaurantImage,
       })
       .then(function (response) {
         console.log(response);
@@ -65,12 +66,23 @@ const MenuForm = () => {
       .catch(function (error) {
         console.log(error.message);
       });
+    // axios
+    //   .post(session_url, {
+    //     description: dishGroup,
+    //     image: restaurantImage,
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error.message);
+    //   });
     setIsSubmit(true);
     e.preventDefault();
-    setRestaurantName("");
+    setRestaurantImage("");
     setDishId("");
     setDishPrice("");
-    setDishName("");
+    setDishGroup("");
     setValue("");
     setTimeout(() => {
       setIsSubmit(false);

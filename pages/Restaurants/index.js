@@ -80,7 +80,7 @@ const Restaurants = () => {
       },
     },
     {
-      field: "Add Menu",
+      field: "Add Menu Group",
       width: 150,
       renderCell: (cellValues) => {
         return (
