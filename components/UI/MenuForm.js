@@ -33,7 +33,7 @@ const MenuForm = () => {
   const [dishId, setDishId] = useState("");
   const [restaurantImage, setRestaurantImage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup/?id=1";
+  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup/?id=3";
 
   const handleMultiLineChange = (event) => {
     setValue(event.target.value);

@@ -11,23 +11,22 @@ import {
   fetchRestaurantsData,
 } from "../../Redux/Restaurants/restaurantsActions";
 import data from "../../Redux/Restaurants/data.json";
+import axios from "axios";
 
 const dataObj = {
   title: "Restaurants",
   link: "../Restaurants/addRestaurants",
 };
 const Restaurants = () => {
+  const dispatch = useDispatch();
   const { restaurants, loading, error } = useSelector(
     (items) => items.restaurantsReducer
   );
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log("useeffect");
-    dispatch(fetchRestaurants());
-  }, []);
+
   console.log(restaurants);
   console.log(loading);
   console.log(error);
+
   const columnsData = [
     { field: "thumbnail", headerName: "Thumbnail", width: 200 },
     {
@@ -35,6 +34,9 @@ const Restaurants = () => {
       headerName: "RestaurantName",
       width: 200,
       editable: true,
+      startRowEditMode: (cellValues) => {
+        console.log(cellValues);
+      },
     },
     { field: "address", headerName: "Address", width: 200 },
     {
@@ -69,9 +71,7 @@ const Restaurants = () => {
             <IconButton
               variant="contained"
               color="primary"
-              // onClick={(event) => {
-              //   handleClick(event, cellValues);
-              // }}
+              onClick={() => deleteHandler(cellValues.id)}
             >
               <DeleteIcon />
             </IconButton>
@@ -95,6 +95,23 @@ const Restaurants = () => {
       },
     },
   ];
+  const deleteHandler = (rowId) => {
+    axios
+      .delete(
+        `http://10.4.41.213:8080/vendor-service/vendor/?vendorId=${rowId}`,
+        {}
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
+  };
+  useEffect(() => {
+    console.log("useeffect");
+    dispatch(fetchRestaurants());
+  }, []);
   return (
     <Layout>
       <DataTable

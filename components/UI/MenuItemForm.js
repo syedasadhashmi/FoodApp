@@ -29,7 +29,7 @@ const MenuItemForm = () => {
   const [onDisplay, setOnDisplay] = useState("true");
   const [isSubmit, setIsSubmit] = useState(false);
   const session_url =
-    "http://10.4.41.213:8080/vendor-service/catalogItem/menuGroup?menuGroupId=5";
+    "http://10.4.41.213:8080/vendor-service/catalogItem/menuGroup?menuGroupId=21";
 
   const handleChange = (event) => {
     setOnDisplay(event.target.value);
