@@ -9,6 +9,9 @@ import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import { DataGrid } from "@mui/x-data-grid";
 import Link from "next/link";
 const DataTable = ({ props, columnsData, dataObj }) => {
+  const handleSubmit = (GridCellEditCommitParams) => {
+    console.log(GridCellEditCommitParams);
+  };
   return (
     <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
@@ -24,6 +27,7 @@ const DataTable = ({ props, columnsData, dataObj }) => {
         />
         <CardContent>
           <DataGrid
+            onCellEditCommit={handleSubmit}
             sx={{ height: "65vh" }}
             rows={props}
             columns={columnsData}
