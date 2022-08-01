@@ -14,6 +14,7 @@ import MuiPhoneNumber from "material-ui-phone-number";
 import Link from "next/link";
 import PopUp from "./PopUp";
 import axios from "axios";
+import { apiUrl } from "../../utils/constant";
 
 const RestaurantForm = () => {
   const [phone, setPhone] = useState("");
@@ -25,7 +26,7 @@ const RestaurantForm = () => {
   const [thumbnail, setThumbnail] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
-  const session_url = "http://10.4.41.213:8080/user-service/vendor/register";
+  const session_url = `${apiUrl}/user-service/vendor/register`;
   const handleNumOnChange = (event) => {
     setPhone(event);
   };

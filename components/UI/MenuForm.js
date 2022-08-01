@@ -33,25 +33,26 @@ const MenuForm = () => {
   const [dishId, setDishId] = useState("");
   const [restaurantImage, setRestaurantImage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = "http://10.4.41.213:8080/vendor-service/menuGroup/?id=3";
+  const session_url = `${apiUrl}/vendor-service/menuGroup/?id=3`;
 
-  const handleMultiLineChange = (event) => {
-    setValue(event.target.value);
-  };
-  const handleChange = (event) => {
-    setDishType(event.target.value);
+  // const handleMultiLineChange = (event) => {
+  //   setValue(event.target.value);
+  // };
+  // const handleChange = (event) => {
+  //   setDishType(event.target.value);
+  // };
+
+  // const dishPriceHandler = (event) => {
+  //   setDishPrice(event.target.value);
+  // };
+  // const dishIdHandler = (event) => {
+  //   setDishId(event.target.value);
+  // };
+  const restaurantImageHandler = (event) => {
+    setRestaurantImage(event.target.value);
   };
   const dishGroupHandler = (event) => {
     setDishGroup(event.target.value);
-  };
-  const dishPriceHandler = (event) => {
-    setDishPrice(event.target.value);
-  };
-  const dishIdHandler = (event) => {
-    setDishId(event.target.value);
-  };
-  const restaurantImageHandler = (event) => {
-    setRestaurantImage(event.target.value);
   };
 
   const submitHandler = (e) => {

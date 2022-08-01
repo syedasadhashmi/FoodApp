@@ -4,6 +4,7 @@ import {
   FETCH_MENU_DISHES_FAILURE,
 } from "./menuDishesTypes";
 import data3 from "./data3.json";
+import { apiUrl } from "../../utils/constant";
 
 export const fetchMenuDishes = (id) => {
   console.log(id);
@@ -11,9 +12,7 @@ export const fetchMenuDishes = (id) => {
     await axios
       // http://10.4.41.213:8080/vendor-service/menuGroup/restaurant?vendorId=${id}
 
-      .get(
-        `http://10.4.41.213:8080/vendor-service/catalogItem/menuGroup?menuGroupId=${id}`
-      ) //fake api
+      .get(`${apiUrl}/vendor-service/catalogItem/menuGroup?menuGroupId=${id}`) //fake api
       .then((response) => {
         dispatch({ type: FETCH_MENU_DISHES, payload: response.data }); //directly passing data from data.json
       })

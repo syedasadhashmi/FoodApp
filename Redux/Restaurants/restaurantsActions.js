@@ -1,5 +1,6 @@
 import axios from "axios";
 import data from "./data.json";
+import { apiUrl } from "../../utils/constant";
 import {
   FETCH_RESTAURANTS,
   FETCH_RESTAURANTS_FAILURE,
@@ -7,7 +8,7 @@ import {
 export const fetchRestaurants = () => {
   return async (dispatch) => {
     await axios
-      .get("http://10.4.41.213:8080/vendor-service/vendor/vendors") //fake api
+      .get(`${apiUrl}/vendor-service/vendor/vendors`) //fake api
       .then((response) => {
         dispatch({ type: FETCH_RESTAURANTS, payload: response.data }); //directly passing data from data.json
       })

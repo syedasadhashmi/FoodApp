@@ -14,6 +14,7 @@ import Link from "next/link";
 import PopUp from "./PopUp";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
+import { apiUrl } from "../../utils/constant";
 const onDisplayObj = [
   {
     value: "true",
@@ -28,8 +29,7 @@ const MenuItemForm = () => {
   const [description, setDescription] = useState("");
   const [onDisplay, setOnDisplay] = useState("true");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url =
-    "http://10.4.41.213:8080/vendor-service/catalogItem/menuGroup?menuGroupId=21";
+  const session_url = `${apiUrl}/vendor-service/catalogItem/menuGroup?menuGroupId=21`;
 
   const handleChange = (event) => {
     setOnDisplay(event.target.value);

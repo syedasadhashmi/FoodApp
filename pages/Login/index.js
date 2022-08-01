@@ -11,13 +11,14 @@ import Home from "../Home";
 import { useState } from "react";
 import axios from "axios";
 import ErrorPopup from "../../components/UI/ErrorPopup";
+import { apiUrl } from "../../utils/constant";
 // import Image from "next/image";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const [isErrorPop, setIsErrorPop] = useState(true);
-  const session_url = `http://10.4.41.213:8080/oauth/token?grant_type=password&username=${email}&password=${password}`;
+  const session_url = `${apiUrl}/oauth/token?grant_type=password&username=${email}&password=${password}`;
   const user = "tacky";
   const pass = "ashdot";
 

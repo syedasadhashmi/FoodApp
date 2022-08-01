@@ -12,17 +12,34 @@ import {
 } from "../../Redux/Restaurants/restaurantsActions";
 import data from "../../Redux/Restaurants/data.json";
 import axios from "axios";
+import { apiUrl } from "../../utils/constant";
 
 const dataObj = {
   title: "Restaurants",
   link: "../Restaurants/addRestaurants",
 };
-const Restaurants = () => {
+const Restaurants = (handleSubmit) => {
   const dispatch = useDispatch();
   const { restaurants, loading, error } = useSelector(
     (items) => items.restaurantsReducer
   );
 
+  // const handleSubmit = (GridCellEditCommitParams) => {
+  //   console.log(GridCellEditCommitParams);
+  //   axios
+  //     .put(
+  //       `http://10.4.41.164:8080/vendor-service/vendor/?vendorId=${GridCellEditCommitParams.id}`,
+  //       {
+  //         restaurantTitle: GridCellEditCommitParams.value,
+  //       }
+  //     )
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error.message);
+  //     });
+  // };
   console.log(restaurants);
   console.log(loading);
   console.log(error);
@@ -38,7 +55,7 @@ const Restaurants = () => {
         console.log(cellValues);
       },
     },
-    { field: "address", headerName: "Address", width: 200 },
+    { field: "location", headerName: "Address", width: 200 },
     {
       field: "contactNumber",
       headerName: "ContactNumber",
@@ -97,10 +114,7 @@ const Restaurants = () => {
   ];
   const deleteHandler = (rowId) => {
     axios
-      .delete(
-        `http://10.4.41.213:8080/vendor-service/vendor/?vendorId=${rowId}`,
-        {}
-      )
+      .delete(`${apiUrl}/vendor-service/vendor/?vendorId=${rowId}`, {})
       .then(function (response) {
         console.log(response);
       })
@@ -108,6 +122,7 @@ const Restaurants = () => {
         console.log(error.message);
       });
   };
+
   useEffect(() => {
     console.log("useeffect");
     dispatch(fetchRestaurants());

@@ -8,10 +8,25 @@ import {
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import { DataGrid } from "@mui/x-data-grid";
 import Link from "next/link";
+import axios from "axios";
 const DataTable = ({ props, columnsData, dataObj }) => {
   const handleSubmit = (GridCellEditCommitParams) => {
     console.log(GridCellEditCommitParams);
+    axios
+      .put(
+        `http://10.4.41.164:8080/vendor-service/vendor/?vendorId=${GridCellEditCommitParams.id}`,
+        {
+          restaurantTitle: GridCellEditCommitParams.value,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+      });
   };
+
   return (
     <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
       <Card>
