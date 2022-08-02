@@ -1,0 +1,2 @@
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_TIME_EXPIRES = "LOGIN_TIME_EXPIRES";

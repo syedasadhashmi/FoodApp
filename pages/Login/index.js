@@ -12,6 +12,9 @@ import { useState } from "react";
 import axios from "axios";
 import ErrorPopup from "../../components/UI/ErrorPopup";
 import { apiUrl } from "../../utils/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess, logoutTimer } from "../../Redux/Login/loginActions";
+import { saveToLocalStorage } from "../../Redux/Login/loginActions";
 // import Image from "next/image";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,6 +31,10 @@ const Login = () => {
   const emailHandler = (e) => {
     setEmail(e.target.value);
   };
+  const dispatch = useDispatch();
+  const { refresh_token, access_token, expires_in } = useSelector(
+    (state) => state.loginReducer
+  );
   const submitHandler = (e) => {
     axios
       .post(
@@ -41,7 +48,9 @@ const Login = () => {
         }
       )
       .then(function (response) {
-        console.log(response.data);
+        dispatch(loginSuccess(response.data));
+        saveToLocalStorage(response.data);
+        logoutTimer(response.data.expires_in);
         setIsSubmit(true);
       })
       .catch(function (error) {
