@@ -10,6 +10,7 @@ const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       console.log(action.payload);
+      localStorage.setItem("tokenDetails", JSON.stringify(action.payload));
       return {
         refresh_token: action.payload.refresh_token,
         access_token: action.payload.access_token,
@@ -17,6 +18,7 @@ const loginReducer = (state = initialState, action) => {
         isLogin: true,
       };
     case LOGIN_TIME_EXPIRES:
+      localStorage.removeItem("tokenDetails");
       return {
         isLogin: false,
       };
