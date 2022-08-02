@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IconButton } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 import DataTable from "../../components/UI/DataTable";
@@ -24,8 +24,13 @@ const columnsData = [
   //   sortable: false,
   //   width: 250,
   // },
+  {
+    field: "image",
+    headerName: "Image",
+    width: 150,
+    renderCell: (params) => <Avatar src={params.value} />,
+  },
   { field: "description", headerName: "Item Name", width: 250 },
-  { field: "image", headerName: "Image", width: 250 },
   { field: "price", headerName: "Price", width: 250 },
 
   {

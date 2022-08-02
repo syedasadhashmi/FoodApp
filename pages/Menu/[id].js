@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import DataTable from "../../components/UI/DataTable";
-import { IconButton } from "@mui/material";
+import { IconButton, Avatar } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
@@ -98,8 +98,13 @@ const columnsData = [
   //   sortable: false,
   //   width: 250,
   // },
+  {
+    field: "thumbnail",
+    headerName: "thumbnail",
+    width: 150,
+    renderCell: (params) => <Avatar src={params.value} />,
+  },
   { field: "description", headerName: "DishName", width: 250 },
-  { field: "thumbnail", headerName: "thumbnail", width: 250 },
   {
     field: "Action",
     width: 150,

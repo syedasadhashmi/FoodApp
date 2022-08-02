@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IconButton } from "@mui/material";
+import { IconButton, Avatar } from "@mui/material";
 import DataTable from "../../components/UI/DataTable";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -45,7 +45,12 @@ const Restaurants = (handleSubmit) => {
   console.log(error);
 
   const columnsData = [
-    { field: "thumbnail", headerName: "Thumbnail", width: 200 },
+    {
+      field: "thumbnail",
+      headerName: "Thumbnail",
+      width: 150,
+      renderCell: (params) => <Avatar src={params.value} />,
+    },
     {
       field: "restaurantTitle",
       headerName: "RestaurantName",
