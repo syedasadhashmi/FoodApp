@@ -153,6 +153,7 @@ const Menu = () => {
   const router = useRouter();
   const { id } = router.query;
   console.log(id);
+
   const { fetchData } = useSelector((state) => state.menuReducer);
   console.log(fetchData);
   const dispatch = useDispatch();

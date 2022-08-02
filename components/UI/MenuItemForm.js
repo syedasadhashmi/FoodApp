@@ -15,6 +15,7 @@ import PopUp from "./PopUp";
 import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 import { apiUrl } from "../../utils/constant";
+import { useSelector } from "react-redux";
 const onDisplayObj = [
   {
     value: "true",
@@ -29,7 +30,9 @@ const MenuItemForm = () => {
   const [description, setDescription] = useState("");
   const [onDisplay, setOnDisplay] = useState("true");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = `${apiUrl}/vendor-service/catalogItem/menuGroup?menuGroupId=21`;
+  const { id } = useSelector((state) => state.menuDishesReducer);
+  console.log(id);
+  const session_url = `${apiUrl}/vendor-service/catalogItem/menuGroup?menuGroupId=${id}`;
 
   const handleChange = (event) => {
     setOnDisplay(event.target.value);

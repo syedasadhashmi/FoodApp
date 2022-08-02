@@ -14,6 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import PopUp from "./PopUp";
 import axios from "axios";
+import { apiUrl } from "../../utils/constant";
+import { useSelector } from "react-redux";
 const DishTypeObj = [
   {
     value: "Chinese",
@@ -33,7 +35,9 @@ const MenuForm = () => {
   const [dishId, setDishId] = useState("");
   const [restaurantImage, setRestaurantImage] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-  const session_url = `${apiUrl}/vendor-service/menuGroup/?id=3`;
+  const { id } = useSelector((state) => state.menuReducer);
+  console.log(id);
+  const session_url = `${apiUrl}/vendor-service/menuGroup/?id=${id}`;
 
   // const handleMultiLineChange = (event) => {
   //   setValue(event.target.value);

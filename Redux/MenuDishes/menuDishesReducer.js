@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   fetchDishes: [],
   error: "",
+  id: "",
 };
 
 const menuDishesReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ const menuDishesReducer = (state = initialState, action) => {
       return {
         loading: true,
         fetchDishes: action.payload,
+        id: action.id,
       };
     case FETCH_MENU_DISHES_FAILURE:
       return {
