@@ -1,6 +1,7 @@
 import Accordian from "../../components/UI/Accordian";
 import Layout from "../../components/Layout/Layout";
 import { useSelector } from "react-redux";
+import Login from "../Login";
 const inPendingObj = [
   {
     id: 1,
@@ -64,19 +65,19 @@ const deliveredObj = [
 const Orders = () => {
   const { isLogin } = useSelector((state) => state.loginReducer);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <Accordian
-            inPendingObj={inPendingObj}
-            inProgressObj={inProgressObj}
-            deliveredObj={deliveredObj}
-          />
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <Accordian
+        inPendingObj={inPendingObj}
+        inProgressObj={inProgressObj}
+        deliveredObj={deliveredObj}
+      />
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 };
 

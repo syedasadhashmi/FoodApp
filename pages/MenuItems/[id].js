@@ -80,19 +80,19 @@ const menuItems = () => {
     dispatch(fetchMenuDishes(id));
   }, []);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <DataTable
-            props={fetchDishes ? fetchDishes : []}
-            columnsData={columnsData}
-            dataObj={dataObj}
-          />
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <DataTable
+        props={fetchDishes ? fetchDishes : []}
+        columnsData={columnsData}
+        dataObj={dataObj}
+      />
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 };
 

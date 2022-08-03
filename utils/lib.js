@@ -1,5 +1,5 @@
 import axios from "axios";
-import { message } from "antd";
+// import { message } from "antd";
 // Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
@@ -26,7 +26,7 @@ axios.interceptors.response.use(
     const errorStatus = error.response.status;
     const errorMessage = error.response.data.message;
 
-    message.error(errorMessage);
+    // message.error(errorMessage);
     return Promise.reject(errorMessage);
   }
 );

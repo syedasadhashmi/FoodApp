@@ -135,19 +135,19 @@ const Restaurants = (handleSubmit) => {
     dispatch(fetchRestaurants());
   }, []);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <DataTable
-            props={restaurants ? restaurants : []}
-            columnsData={columnsData}
-            dataObj={dataObj}
-          />
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <DataTable
+        props={restaurants ? restaurants : []}
+        columnsData={columnsData}
+        dataObj={dataObj}
+      />
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 };
 

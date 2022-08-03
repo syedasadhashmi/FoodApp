@@ -2,7 +2,8 @@ import "../styles/globals.css";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Provider } from "react-redux";
 import store from "../Redux/store";
-function MyApp({ Component, pageProps }) {
+// import ProtectedRoutes from "../components/UI/ProtectedRoutes";
+function MyApp({ Component, pageProps, router }) {
   const theme = createTheme({
     palette: {
       primary: {
@@ -12,12 +13,15 @@ function MyApp({ Component, pageProps }) {
       },
     },
   });
+  // console.log(router.push);
   return (
+    // <ProtectedRoutes router={router}>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
     </ThemeProvider>
+    // </ProtectedRoutes>
   );
 }
 

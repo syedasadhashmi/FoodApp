@@ -168,19 +168,19 @@ const Menu = () => {
     dispatch(fetchMenu(id));
   }, []);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <DataTable
-            props={fetchData ? fetchData : []}
-            columnsData={columnsData}
-            dataObj={dataObj}
-          />
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <DataTable
+        props={fetchData ? fetchData : []}
+        columnsData={columnsData}
+        dataObj={dataObj}
+      />
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 };
 

@@ -21,3 +21,10 @@ export const logoutTimer = (dispatch, timer) => {
     console.log(timer);
   }, timer);
 };
+// export const verifyToken = () => {
+//   if (localStorage.getItem("tokenDetails")) {
+//     console.log("correct");
+//   } else {
+//     console.log("false");
+//   }
+// };

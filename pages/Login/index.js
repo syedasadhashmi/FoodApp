@@ -37,7 +37,7 @@ const Login = () => {
     (state) => state.loginReducer
   );
   console.log(isLogin);
-  const submitHandler = (e) => {
+  const loginSubmitHandler = (e) => {
     axios
       .post(
         session_url,
@@ -51,6 +51,7 @@ const Login = () => {
       )
       .then(function (response) {
         dispatch(loginSuccess(response.data));
+        console.log(response.data);
         logoutTimer(dispatch, response.data.expires_in);
         setIsSubmit(true);
       })
@@ -89,7 +90,7 @@ const Login = () => {
           </Grid>
           <Grid item xs={4}>
             <Container className={classes.tableStyle}>
-              <form onSubmit={submitHandler}>
+              <form onSubmit={loginSubmitHandler}>
                 <Stack direction="column" spacing={3}>
                   <div className={classes.center}>
                     <Typography variant="h4">Admin Panel</Typography>

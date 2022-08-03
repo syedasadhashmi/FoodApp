@@ -6,19 +6,19 @@ import Login from "../Login";
 const Home = () => {
   const { isLogin } = useSelector((state) => state.loginReducer);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <Container
-            sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}
-          >
-            <Typography variant="h3">Home</Typography>
-          </Container>
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <Container
+        sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}
+      >
+        <Typography variant="h3">Home</Typography>
+      </Container>
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 };
 
