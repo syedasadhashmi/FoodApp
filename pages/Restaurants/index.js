@@ -13,6 +13,7 @@ import {
 import data from "../../Redux/Restaurants/data.json";
 import axios from "axios";
 import { apiUrl } from "../../utils/constant";
+import Login from "../Login";
 
 const dataObj = {
   title: "Restaurants",
@@ -23,6 +24,7 @@ const Restaurants = (handleSubmit) => {
   const { restaurants, loading, error } = useSelector(
     (items) => items.restaurantsReducer
   );
+  const { isLogin } = useSelector((state) => state.loginReducer);
 
   // const handleSubmit = (GridCellEditCommitParams) => {
   //   console.log(GridCellEditCommitParams);
@@ -133,13 +135,19 @@ const Restaurants = (handleSubmit) => {
     dispatch(fetchRestaurants());
   }, []);
   return (
-    <Layout>
-      <DataTable
-        props={restaurants ? restaurants : []}
-        columnsData={columnsData}
-        dataObj={dataObj}
-      />
-    </Layout>
+    <>
+      {isLogin ? (
+        <Layout>
+          <DataTable
+            props={restaurants ? restaurants : []}
+            columnsData={columnsData}
+            dataObj={dataObj}
+          />
+        </Layout>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 };
 

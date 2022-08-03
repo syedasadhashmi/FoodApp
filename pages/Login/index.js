@@ -33,9 +33,10 @@ const Login = () => {
     setEmail(e.target.value);
   };
   const dispatch = useDispatch();
-  const { refresh_token, access_token, expires_in } = useSelector(
+  const { refresh_token, access_token, expires_in, isLogin } = useSelector(
     (state) => state.loginReducer
   );
+  console.log(isLogin);
   const submitHandler = (e) => {
     axios
       .post(
@@ -50,7 +51,7 @@ const Login = () => {
       )
       .then(function (response) {
         dispatch(loginSuccess(response.data));
-        logoutTimer(response.data.expires_in);
+        logoutTimer(dispatch, response.data.expires_in);
         setIsSubmit(true);
       })
       .catch(function (error) {

@@ -8,14 +8,15 @@ export const loginSuccess = (data) => {
 };
 
 export const loginTimeExpires = () => {
+  localStorage.removeItem("tokenDetails");
   return {
     type: LOGIN_TIME_EXPIRES,
   };
 };
 
-export const logoutTimer = (timer) => {
+export const logoutTimer = (dispatch, timer) => {
   setTimeout(() => {
-    loginTimeExpires();
+    dispatch(loginTimeExpires());
     console.log("hello");
     console.log(timer);
   }, timer);

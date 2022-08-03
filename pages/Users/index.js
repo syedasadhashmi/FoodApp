@@ -2,6 +2,8 @@ import { IconButton } from "@mui/material";
 import DataTable from "../../components/UI/DataTable";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
+import { useSelector } from "react-redux";
+import Login from "../Login";
 export default function Users() {
   const rowData = [
     {
@@ -142,9 +144,20 @@ export default function Users() {
   const deleteHandler = (event) => {
     console.log(event.target);
   };
+  const { isLogin } = useSelector((state) => state.loginReducer);
   return (
-    <Layout>
-      <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
-    </Layout>
+    <>
+      {isLogin ? (
+        <Layout>
+          <DataTable
+            props={rowData}
+            columnsData={columnsData}
+            dataObj={dataObj}
+          />
+        </Layout>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 }

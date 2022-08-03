@@ -10,6 +10,7 @@ import data2 from "../../Redux/MenuGroup/data2.json";
 import axios from "axios";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import Link from "next/link";
+import Login from "../Login";
 
 // const rowData = [
 //   {
@@ -158,21 +159,28 @@ const Menu = () => {
   const router = useRouter();
   const { id } = router.query;
   console.log(id);
-
   const { fetchData } = useSelector((state) => state.menuReducer);
   console.log(fetchData);
+  const { isLogin } = useSelector((state) => state.loginReducer);
+  console.log(isLogin);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMenu(id));
   }, []);
   return (
-    <Layout>
-      <DataTable
-        props={fetchData ? fetchData : []}
-        columnsData={columnsData}
-        dataObj={dataObj}
-      />
-    </Layout>
+    <>
+      {isLogin ? (
+        <Layout>
+          <DataTable
+            props={fetchData ? fetchData : []}
+            columnsData={columnsData}
+            dataObj={dataObj}
+          />
+        </Layout>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Layout from "../../components/Layout/Layout";
 import DataTable from "../../components/UI/DataTable";
 import { fetchMenuDishes } from "../../Redux/MenuDishes/menuDishesActions";
+import Login from "../Login";
 
 const columnsData = [
   // { field: 'id', headerName: 'id', width: 100 },
@@ -73,18 +74,25 @@ const menuItems = () => {
   const { id } = router.query;
   console.log(id);
   const dispatch = useDispatch();
+  const { isLogin } = useSelector((state) => state.loginReducer);
   const { fetchDishes } = useSelector((state) => state.menuDishesReducer);
   useEffect(() => {
     dispatch(fetchMenuDishes(id));
   }, []);
   return (
-    <Layout>
-      <DataTable
-        props={fetchDishes ? fetchDishes : []}
-        columnsData={columnsData}
-        dataObj={dataObj}
-      />
-    </Layout>
+    <>
+      {isLogin ? (
+        <Layout>
+          <DataTable
+            props={fetchDishes ? fetchDishes : []}
+            columnsData={columnsData}
+            dataObj={dataObj}
+          />
+        </Layout>
+      ) : (
+        <Login />
+      )}
+    </>
   );
 };
 

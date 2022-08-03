@@ -18,7 +18,6 @@ const loginReducer = (state = initialState, action) => {
         isLogin: true,
       };
     case LOGIN_TIME_EXPIRES:
-      localStorage.removeItem("tokenDetails");
       return {
         isLogin: false,
       };
