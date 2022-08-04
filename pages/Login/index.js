@@ -50,13 +50,13 @@ const Login = () => {
         }
       )
       .then(function (response) {
-        dispatch(loginSuccess(response.data));
-        console.log(response.data);
-        logoutTimer(dispatch, response.data.expires_in);
+        dispatch(loginSuccess(response));
+        console.log(response);
+        // logoutTimer(dispatch, response.data.expires_in);
         setIsSubmit(true);
       })
       .catch(function (error) {
-        console.log(error.message);
+        console.log(error);
         setIsSubmit(false);
         setIsErrorPop(false);
         setTimeout(() => {

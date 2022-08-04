@@ -146,18 +146,14 @@ export default function Users() {
   };
   const { isLogin } = useSelector((state) => state.loginReducer);
   return (
-    <>
-      {isLogin ? (
-        <Layout>
-          <DataTable
-            props={rowData}
-            columnsData={columnsData}
-            dataObj={dataObj}
-          />
-        </Layout>
-      ) : (
-        <Login />
-      )}
-    </>
+    // <>
+    //   {isLogin ? (
+    <Layout>
+      <DataTable props={rowData} columnsData={columnsData} dataObj={dataObj} />
+    </Layout>
+    //   ) : (
+    //     <Login />
+    //   )}
+    // </>
   );
 }

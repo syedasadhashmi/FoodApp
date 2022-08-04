@@ -13,7 +13,7 @@ export const fetchRestaurants = () => {
         dispatch({ type: FETCH_RESTAURANTS, payload: response.data }); //directly passing data from data.json
       })
       .catch((error) => {
-        dispatch({ type: FETCH_RESTAURANTS_FAILURE, payload: error.message });
+        dispatch({ type: FETCH_RESTAURANTS_FAILURE, payload: error });
       });
   };
 };

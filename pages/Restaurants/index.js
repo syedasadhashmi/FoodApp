@@ -131,7 +131,6 @@ const Restaurants = (handleSubmit) => {
   };
 
   useEffect(() => {
-    console.log("useeffect");
     dispatch(fetchRestaurants());
   }, []);
   return (

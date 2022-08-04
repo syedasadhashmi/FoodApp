@@ -14,13 +14,13 @@ export const loginTimeExpires = () => {
   };
 };
 
-export const logoutTimer = (dispatch, timer) => {
-  setTimeout(() => {
-    dispatch(loginTimeExpires());
-    console.log("hello");
-    console.log(timer);
-  }, timer);
-};
+// export const logoutTimer = (dispatch, timer) => {
+//   setTimeout(() => {
+//     dispatch(loginTimeExpires());
+//     console.log("hello");
+//     console.log(timer);
+//   }, timer);
+// };
 // export const verifyToken = () => {
 //   if (localStorage.getItem("tokenDetails")) {
 //     console.log("correct");

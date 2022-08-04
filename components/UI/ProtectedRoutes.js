@@ -1,24 +1,28 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { verifyToken } from "../../Redux/Login/loginActions";
+import { useDispatch } from "react-redux";
+import { verifyToken } from "../../pages/Restaurants/restaurants";
 import { post } from "../../utils/lib";
 const ProtectedRoutes = ({ children, router }) => {
   const [viewPage, setViewPage] = useState(false);
+
   useEffect(() => {
     verifyToken()
       .then(() => {
-        if (router.pathname !== "/login") {
+        if (router.pathname !== "/Login") {
+          console.log("login");
           setViewPage(true);
           return;
         }
         router.push("/");
       })
       .catch(() => {
-        if (router.pathname === "/login") {
+        if (router.pathname === "/Login") {
+          console.log("not login");
           setViewPage(true);
           return;
         }
-        router.push("/login");
+        router.push("/Login");
       });
 
     return () => null;
