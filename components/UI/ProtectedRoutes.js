@@ -8,9 +8,9 @@ const ProtectedRoutes = ({ children, router }) => {
 
   useEffect(() => {
     verifyToken()
-      .then(() => {
+      .then((response) => {
         if (router.pathname !== "/Login") {
-          console.log("login");
+          console.log(response);
           setViewPage(true);
           return;
         }

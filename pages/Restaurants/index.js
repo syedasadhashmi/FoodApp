@@ -62,7 +62,12 @@ const Restaurants = (handleSubmit) => {
         console.log(cellValues);
       },
     },
-    { field: "location", headerName: "Address", width: 200 },
+    {
+      field: "location",
+      headerName: "Address",
+      width: 200,
+      renderCell: (params) => params.row.location.address,
+    },
     {
       field: "contactNumber",
       headerName: "ContactNumber",

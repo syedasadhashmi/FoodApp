@@ -9,7 +9,7 @@ export const fetchMenu = (id) => {
     await axios
       .get(`${apiUrl}/vendor-service/menuGroup/restaurant?vendorId=${id}`) //fake api
       .then((response) => {
-        dispatch({ type: FETCH_MENU, payload: response.data, id: id }); //directly passing data from data.json
+        dispatch({ type: FETCH_MENU, payload: response, id: id }); //directly passing data from data.json
       })
       .catch((error) => {
         dispatch({ type: FETCH_MENU_FAILURE, payload: error.message });

@@ -14,7 +14,7 @@ export const fetchMenuDishes = (id) => {
 
       .get(`${apiUrl}/vendor-service/catalogItem/menuGroup?menuGroupId=${id}`) //fake api
       .then((response) => {
-        dispatch({ type: FETCH_MENU_DISHES, payload: response.data, id: id }); //directly passing data from data.json
+        dispatch({ type: FETCH_MENU_DISHES, payload: response, id: id }); //directly passing data from data.json
       })
       .catch((error) => {
         dispatch({ type: FETCH_MENU_DISHES_FAILURE, payload: error.message });

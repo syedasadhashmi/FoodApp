@@ -10,7 +10,7 @@ const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       console.log(action.payload);
-      localStorage.setItem("tokenDetails", JSON.stringify(action.payload));
+      localStorage.setItem("tokenDetails", action.payload.access_token);
       return {
         refresh_token: action.payload.refresh_token,
         access_token: action.payload.access_token,
