@@ -50,6 +50,22 @@ const Menu = () => {
     },
     { field: 'description', headerName: 'DishName', width: 250 },
     {
+      field: 'Add MenuItems',
+      width: 150,
+      renderCell: (cellValues) => {
+        console.log(cellValues.id);
+        return (
+          <>
+            <Link href={`../MenuItems/${cellValues.id}`}>
+              <IconButton variant="contained" color="primary">
+                <MenuBookIcon />
+              </IconButton>
+            </Link>
+          </>
+        );
+      },
+    },
+    {
       field: 'Action',
       width: 150,
       renderCell: (cellValues) => {
@@ -74,22 +90,6 @@ const Menu = () => {
             >
               <DeleteIcon />
             </IconButton>
-          </>
-        );
-      },
-    },
-    {
-      field: 'Add MenuItems',
-      width: 150,
-      renderCell: (cellValues) => {
-        console.log(cellValues.id);
-        return (
-          <>
-            <Link href={`../MenuItems/${cellValues.id}`}>
-              <IconButton variant="contained" color="primary">
-                <MenuBookIcon />
-              </IconButton>
-            </Link>
           </>
         );
       },

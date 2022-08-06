@@ -84,6 +84,21 @@ const Restaurants = (handleSubmit) => {
       width: 200,
     },
     {
+      field: 'Add Menu Group',
+      width: 150,
+      renderCell: (cellValues) => {
+        return (
+          <>
+            <Link href={`../Menu/${cellValues.id}`}>
+              <IconButton variant="contained" color="primary">
+                <RestaurantMenuIcon />
+              </IconButton>
+            </Link>
+          </>
+        );
+      },
+    },
+    {
       field: 'Action',
       width: 150,
       renderCell: (cellValues) => {
@@ -105,21 +120,6 @@ const Restaurants = (handleSubmit) => {
             >
               <DeleteIcon />
             </IconButton>
-          </>
-        );
-      },
-    },
-    {
-      field: 'Add Menu Group',
-      width: 150,
-      renderCell: (cellValues) => {
-        return (
-          <>
-            <Link href={`../Menu/${cellValues.id}`}>
-              <IconButton variant="contained" color="primary">
-                <RestaurantMenuIcon />
-              </IconButton>
-            </Link>
           </>
         );
       },
