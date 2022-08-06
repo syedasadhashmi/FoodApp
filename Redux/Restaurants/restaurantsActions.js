@@ -1,12 +1,13 @@
-import axios from "axios";
-import data from "./data.json";
-import { apiUrl } from "../../utils/constant";
+import axios from 'axios';
+import data from './data.json';
+import { apiUrl } from '../../utils/constant';
 import {
   FETCH_RESTAURANTS,
   FETCH_RESTAURANTS_FAILURE,
-} from "./restaurantsTypes";
+  DELETE_ROW,
+} from './restaurantsTypes';
 export const fetchRestaurants = () => {
-  const token = localStorage.getItem("tokenDetails");
+  const token = localStorage.getItem('tokenDetails');
   return async (dispatch) => {
     await axios
       .get(`${apiUrl}/vendor-service/vendor/vendors`, {
@@ -21,5 +22,11 @@ export const fetchRestaurants = () => {
       .catch((error) => {
         dispatch({ type: FETCH_RESTAURANTS_FAILURE, payload: error });
       });
+  };
+};
+export const deleteRow = (id) => {
+  return {
+    type: DELETE_ROW,
+    payload: id,
   };
 };

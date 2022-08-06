@@ -8,12 +8,13 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchRestaurants,
-  fetchRestaurantsData,
+  deleteRow,
 } from '../../Redux/Restaurants/restaurantsActions';
 import data from '../../Redux/Restaurants/data.json';
 import axios from 'axios';
 import { apiUrl } from '../../utils/constant';
 import Login from '../Login';
+import DeleteModal from '../../components/UI/DeleteModal';
 
 const dataObj = {
   title: 'Restaurants',
@@ -129,6 +130,7 @@ const Restaurants = (handleSubmit) => {
       .delete(`${apiUrl}/vendor-service/vendor/?vendorId=${rowId}`, {})
       .then(function (response) {
         console.log(response);
+        dispatch(deleteRow(rowId));
       })
       .catch(function (error) {
         console.log(error.message);
