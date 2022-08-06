@@ -1,12 +1,13 @@
 import {
   FETCH_MENU_DISHES,
   FETCH_MENU_DISHES_FAILURE,
-} from "./menuDishesTypes";
+  DELETE_MENU_ITEMS,
+} from './menuDishesTypes';
 const initialState = {
   loading: false,
   fetchDishes: [],
-  error: "",
-  id: "",
+  error: '',
+  id: '',
 };
 
 const menuDishesReducer = (state = initialState, action) => {
@@ -21,6 +22,12 @@ const menuDishesReducer = (state = initialState, action) => {
       return {
         fetchDishes: [],
         error: action.payload,
+      };
+    case DELETE_MENU_ITEMS:
+      return {
+        fetchDishes: state.fetchDishes.filter(
+          (items) => items.id !== action.payload
+        ),
       };
     default:
       return {

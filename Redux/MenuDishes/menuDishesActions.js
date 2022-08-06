@@ -1,10 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   FETCH_MENU_DISHES,
   FETCH_MENU_DISHES_FAILURE,
-} from "./menuDishesTypes";
-import data3 from "./data3.json";
-import { apiUrl } from "../../utils/constant";
+  DELETE_MENU_ITEMS,
+} from './menuDishesTypes';
+import data3 from './data3.json';
+import { apiUrl } from '../../utils/constant';
 
 export const fetchMenuDishes = (id) => {
   console.log(id);
@@ -19,5 +20,11 @@ export const fetchMenuDishes = (id) => {
       .catch((error) => {
         dispatch({ type: FETCH_MENU_DISHES_FAILURE, payload: error.message });
       });
+  };
+};
+export const deleteMenuItems = (id) => {
+  return {
+    type: DELETE_MENU_ITEMS,
+    payload: id,
   };
 };
