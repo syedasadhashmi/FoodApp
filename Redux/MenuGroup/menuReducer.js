@@ -1,9 +1,13 @@
-import { FETCH_MENU, FETCH_MENU_FAILURE } from "./menuTypes";
+import {
+  FETCH_MENU,
+  FETCH_MENU_FAILURE,
+  DELETE_MENUGROUP_ROW,
+} from './menuTypes';
 const initialState = {
   loading: false,
   fetchData: [],
-  error: "",
-  id: "",
+  error: '',
+  id: '',
 };
 
 const menuReducer = (state = initialState, action) => {
@@ -19,6 +23,12 @@ const menuReducer = (state = initialState, action) => {
       return {
         fetchData: [],
         error: action.payload,
+      };
+    case DELETE_MENUGROUP_ROW:
+      return {
+        fetchData: state.fetchData.filter(
+          (items) => items.id !== action.payload
+        ),
       };
     default:
       return {
