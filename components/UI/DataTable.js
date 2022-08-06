@@ -4,17 +4,18 @@ import {
   CardContent,
   CardHeader,
   IconButton,
-} from "@mui/material";
-import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-import { DataGrid } from "@mui/x-data-grid";
-import Link from "next/link";
-import axios from "axios";
+} from '@mui/material';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import { DataGrid } from '@mui/x-data-grid';
+import Link from 'next/link';
+import axios from 'axios';
+import { apiUrl } from '../../utils/constant';
 const DataTable = ({ props, columnsData, dataObj }) => {
   const handleSubmit = (GridCellEditCommitParams) => {
     console.log(GridCellEditCommitParams);
     axios
       .put(
-        `http://10.4.41.164:8080/vendor-service/vendor/?vendorId=${GridCellEditCommitParams.id}`,
+        `${apiUrl}/vendor-service/vendor/?vendorId=${GridCellEditCommitParams.id}`,
         {
           restaurantTitle: GridCellEditCommitParams.value,
         }
@@ -28,14 +29,14 @@ const DataTable = ({ props, columnsData, dataObj }) => {
   };
 
   return (
-    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
+    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
       <Card>
         <CardHeader
           title={dataObj.title}
           action={
             <IconButton>
               <Link href={dataObj.link}>
-                <PersonAddAltIcon sx={{ fontSize: "35px" }} />
+                <PersonAddAltIcon sx={{ fontSize: '35px' }} />
               </Link>
             </IconButton>
           }
@@ -43,7 +44,7 @@ const DataTable = ({ props, columnsData, dataObj }) => {
         <CardContent>
           <DataGrid
             onCellEditCommit={handleSubmit}
-            sx={{ height: "65vh" }}
+            sx={{ height: '65vh' }}
             rows={props}
             columns={columnsData}
             pageSize={9}
