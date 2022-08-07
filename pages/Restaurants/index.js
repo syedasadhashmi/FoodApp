@@ -126,8 +126,14 @@ const Restaurants = (handleSubmit) => {
     },
   ];
   const deleteHandler = (rowId) => {
+    const token = localStorage.getItem('tokenDetails');
+
     axios
-      .delete(`${apiUrl}/vendor-service/vendor/?vendorId=${rowId}`, {})
+      .delete(`${apiUrl}/vendor-service/vendor/?vendorId=${rowId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then(function (response) {
         console.log(response);
         dispatch(deleteRow(rowId));

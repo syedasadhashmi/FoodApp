@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Card,
@@ -9,26 +9,26 @@ import {
   Divider,
   Grid,
   TextField,
-} from "@mui/material";
-import Link from "next/link";
-import PopUp from "./PopUp";
-import MenuItem from "@mui/material/MenuItem";
-import axios from "axios";
-import { apiUrl } from "../../utils/constant";
-import { useSelector } from "react-redux";
+} from '@mui/material';
+import Link from 'next/link';
+import PopUp from './PopUp';
+import MenuItem from '@mui/material/MenuItem';
+import axios from 'axios';
+import { apiUrl } from '../../utils/constant';
+import { useSelector } from 'react-redux';
 const onDisplayObj = [
   {
-    value: "true",
+    value: 'true',
   },
   {
-    value: "false",
+    value: 'false',
   },
 ];
 const MenuItemForm = () => {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState('');
   const [price, setPrice] = useState(1);
-  const [description, setDescription] = useState("");
-  const [onDisplay, setOnDisplay] = useState("true");
+  const [description, setDescription] = useState('');
+  const [onDisplay, setOnDisplay] = useState('true');
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useSelector((state) => state.menuDishesReducer);
   console.log(id);
@@ -48,30 +48,37 @@ const MenuItemForm = () => {
   };
 
   const submitHandler = (e) => {
+    const token = localStorage.getItem('tokenDetails');
+    let head = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    let data = {
+      description: description,
+      image: image,
+      price: price,
+      onDisplay: onDisplay,
+    };
     axios
-      .post(session_url, {
-        description: description,
-        image: image,
-        price: price,
-        onDisplay: onDisplay,
-      })
+      .post(session_url, data, head)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error.message);
+        console.log(error);
       });
     setIsSubmit(true);
     e.preventDefault();
-    setImage("");
-    setPrice("");
-    setDescription("");
+    setImage('');
+    setPrice('');
+    setDescription('');
     setTimeout(() => {
       setIsSubmit(false);
     }, 1000);
   };
   return (
-    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
+    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
       <Card>
         <form onSubmit={submitHandler}>
           <CardHeader title="Add Menu Catalog" />
@@ -132,7 +139,7 @@ const MenuItemForm = () => {
             </Grid>
           </CardContent>
           <Divider />
-          <CardActions sx={{ float: "right", marginRight: "10px" }}>
+          <CardActions sx={{ float: 'right', marginRight: '10px' }}>
             <Link href="../Menu">
               <Button variant="outlined">Cancel</Button>
             </Link>

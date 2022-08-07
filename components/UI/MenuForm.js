@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Card,
@@ -9,31 +9,31 @@ import {
   Divider,
   Grid,
   TextField,
-} from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import Link from "next/link";
-import PopUp from "./PopUp";
-import axios from "axios";
-import { apiUrl } from "../../utils/constant";
-import { useSelector } from "react-redux";
+} from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
+import PopUp from './PopUp';
+import axios from 'axios';
+import { apiUrl } from '../../utils/constant';
+import { useSelector } from 'react-redux';
 const DishTypeObj = [
   {
-    value: "Chinese",
+    value: 'Chinese',
   },
   {
-    value: "Italian",
+    value: 'Italian',
   },
   {
-    value: "Turkish",
+    value: 'Turkish',
   },
 ];
 const MenuForm = () => {
-  const [dishType, setDishType] = useState("Chinese");
-  const [value, setValue] = useState("");
-  const [dishGroup, setDishGroup] = useState("");
-  const [dishPrice, setDishPrice] = useState("");
-  const [dishId, setDishId] = useState("");
-  const [restaurantImage, setRestaurantImage] = useState("");
+  const [dishType, setDishType] = useState('Chinese');
+  const [value, setValue] = useState('');
+  const [dishGroup, setDishGroup] = useState('');
+  const [dishPrice, setDishPrice] = useState('');
+  const [dishId, setDishId] = useState('');
+  const [restaurantImage, setRestaurantImage] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useSelector((state) => state.menuReducer);
   console.log(id);
@@ -60,16 +60,23 @@ const MenuForm = () => {
   };
 
   const submitHandler = (e) => {
+    const token = localStorage.getItem('tokenDetails');
+    const data = {
+      description: dishGroup,
+      thumbnail: restaurantImage,
+    };
+    const head = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     axios
-      .post(session_url, {
-        description: dishGroup,
-        thumbnail: restaurantImage,
-      })
+      .post(session_url, data, head)
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error.message);
+        console.log(error);
       });
     // axios
     //   .post(session_url, {
@@ -84,17 +91,17 @@ const MenuForm = () => {
     //   });
     setIsSubmit(true);
     e.preventDefault();
-    setRestaurantImage("");
-    setDishId("");
-    setDishPrice("");
-    setDishGroup("");
-    setValue("");
+    setRestaurantImage('');
+    setDishId('');
+    setDishPrice('');
+    setDishGroup('');
+    setValue('');
     setTimeout(() => {
       setIsSubmit(false);
     }, 1000);
   };
   return (
-    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
+    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
       <Card>
         <form onSubmit={submitHandler}>
           <CardHeader title="Add Menu Group" />
@@ -179,7 +186,7 @@ const MenuForm = () => {
             </Grid>
           </CardContent>
           <Divider />
-          <CardActions sx={{ float: "right", marginRight: "10px" }}>
+          <CardActions sx={{ float: 'right', marginRight: '10px' }}>
             <Link href="../Menu">
               <Button variant="outlined">Cancel</Button>
             </Link>

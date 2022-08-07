@@ -63,9 +63,16 @@ const menuItems = () => {
     },
   ];
   const deleteHandler = (rowId) => {
+    const token = localStorage.getItem('tokenDetails');
+
     axios
       .delete(
-        `${apiUrl}/vendor-service/catalogItem/?menuGroupId=${id}&catalogItemId=${rowId}`
+        `${apiUrl}/vendor-service/catalogItem/?menuGroupId=${id}&catalogItemId=${rowId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then(function (response) {
         console.log(response);

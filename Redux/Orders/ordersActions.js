@@ -13,9 +13,14 @@ import {
   FETCH_COMPLETED_ORDERS_ERROR,
 } from './ordersTypes';
 export const fetchPendingOrders = () => {
+  const token = localStorage.getItem('tokenDetails');
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/order-service/order/admin?status=PENDING`)
+      .get(`${apiUrl}/order-service/order/admin?status=PENDING`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         dispatch({ type: FETCH_PENDING_ORDERS, payload: response });
       })
@@ -26,9 +31,15 @@ export const fetchPendingOrders = () => {
   };
 };
 export const fetchAcceptedOrders = () => {
+  const token = localStorage.getItem('tokenDetails');
+
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/order-service/order/admin?status=ACCEPTED`)
+      .get(`${apiUrl}/order-service/order/admin?status=ACCEPTED`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         dispatch({ type: FETCH_ACCEPTED_ORDERS, payload: response });
@@ -40,9 +51,15 @@ export const fetchAcceptedOrders = () => {
   };
 };
 export const fetchCancelledOrders = () => {
+  const token = localStorage.getItem('tokenDetails');
+
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/order-service/order/admin?status=CANCELLED`)
+      .get(`${apiUrl}/order-service/order/admin?status=CANCELLED`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         dispatch({ type: FETCH_CANCELLED_ORDERS, payload: response });
@@ -54,9 +71,15 @@ export const fetchCancelledOrders = () => {
   };
 };
 export const fetchPreparedOrders = () => {
+  const token = localStorage.getItem('tokenDetails');
+
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/order-service/order/admin?status=PREPARED`)
+      .get(`${apiUrl}/order-service/order/admin?status=PREPARED`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         dispatch({ type: FETCH_PREPARED_ORDERS, payload: response });
@@ -68,9 +91,15 @@ export const fetchPreparedOrders = () => {
   };
 };
 export const fetchCompletedOrders = () => {
+  const token = localStorage.getItem('tokenDetails');
+
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/order-service/order/admin?status=COMPLETED`)
+      .get(`${apiUrl}/order-service/order/admin?status=COMPLETED`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         dispatch({ type: FETCH_COMPLETED_ORDERS, payload: response });

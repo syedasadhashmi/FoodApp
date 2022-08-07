@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Card,
@@ -9,23 +9,24 @@ import {
   Divider,
   Grid,
   TextField,
-} from "@mui/material";
-import MuiPhoneNumber from "material-ui-phone-number";
-import Link from "next/link";
-import PopUp from "./PopUp";
-import axios from "axios";
-import { apiUrl } from "../../utils/constant";
+} from '@mui/material';
+import MuiPhoneNumber from 'material-ui-phone-number';
+import Link from 'next/link';
+import PopUp from './PopUp';
+import axios from 'axios';
+import { apiUrl } from '../../utils/constant';
 
 const RestaurantForm = () => {
-  const [phone, setPhone] = useState("");
-  const [restaurantName, setRestaurantName] = useState("");
-  const [address, setAddress] = useState("");
-  const [restaurantEmail, setRestaurantEmail] = useState("");
+  const [phone, setPhone] = useState('');
+  const [restaurantName, setRestaurantName] = useState('');
+  const [address, setAddress] = useState('');
+  const [restaurantEmail, setRestaurantEmail] = useState('');
   const [submit, setSubmit] = useState(false);
-  const [password, setPassword] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [latitude, setLatitude] = useState("");
+  const [password, setPassword] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [latitude, setLatitude] = useState('');
+
   const session_url = `${apiUrl}/user-service/vendor/register`;
   const handleNumOnChange = (event) => {
     setPhone(event);
@@ -54,17 +55,24 @@ const RestaurantForm = () => {
   };
 
   const handleSubmit = (event) => {
+    const token = localStorage.getItem('tokenDetails');
+    let data = {
+      email: restaurantEmail,
+      password: password,
+      restaurantTitle: restaurantName,
+      contactNumber: phone,
+      thumbnail: thumbnail,
+      address: address,
+      longitude: longitude,
+      latitude: latitude,
+    };
+    let head = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     axios
-      .post(session_url, {
-        email: restaurantEmail,
-        password: password,
-        restaurantTitle: restaurantName,
-        contactNumber: phone,
-        thumbnail: thumbnail,
-        address: address,
-        longitude: longitude,
-        latitude: latitude,
-      })
+      .post(session_url, data, head)
       .then(function (response) {
         console.log(response);
       })
@@ -74,14 +82,14 @@ const RestaurantForm = () => {
     setSubmit(true);
     event.preventDefault();
 
-    setPhone("");
-    setRestaurantEmail("");
-    setRestaurantName("");
-    setAddress("");
-    setThumbnail("");
-    setLatitude("");
-    setLongitude("");
-    setPassword("");
+    setPhone('');
+    setRestaurantEmail('');
+    setRestaurantName('');
+    setAddress('');
+    setThumbnail('');
+    setLatitude('');
+    setLongitude('');
+    setPassword('');
 
     setTimeout(() => {
       setSubmit(false);
@@ -89,7 +97,7 @@ const RestaurantForm = () => {
   };
 
   return (
-    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
+    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
       <Card>
         <form onSubmit={handleSubmit}>
           <CardHeader title="Add Restaurant" />
@@ -143,7 +151,7 @@ const RestaurantForm = () => {
                 <MuiPhoneNumber
                   label="Phone #"
                   required
-                  defaultCountry={"pa"}
+                  defaultCountry={'pa'}
                   value={phone}
                   onChange={handleNumOnChange}
                   fullWidth
@@ -188,7 +196,7 @@ const RestaurantForm = () => {
             </Grid>
           </CardContent>
           <Divider />
-          <CardActions sx={{ float: "right", marginRight: "10px" }}>
+          <CardActions sx={{ float: 'right', marginRight: '10px' }}>
             <Link href="../Restaurants/">
               <Button variant="outlined">Cancel</Button>
             </Link>

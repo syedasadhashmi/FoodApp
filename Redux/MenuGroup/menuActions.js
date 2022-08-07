@@ -8,10 +8,16 @@ import { apiUrl } from '../../utils/constant';
 import data2 from './data2.json';
 
 export const fetchMenu = (id) => {
+  const token = localStorage.getItem('tokenDetails');
+
   console.log(id);
   return async (dispatch) => {
     await axios
-      .get(`${apiUrl}/vendor-service/menuGroup/restaurant?vendorId=${id}`) //fake api
+      .get(`${apiUrl}/vendor-service/menuGroup/restaurant?vendorId=${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }) //fake api
       .then((response) => {
         dispatch({ type: FETCH_MENU, payload: response, id: id }); //directly passing data from data.json
       })

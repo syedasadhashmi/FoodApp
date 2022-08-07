@@ -12,19 +12,21 @@ import axios from 'axios';
 import { apiUrl } from '../../utils/constant';
 const DataTable = ({ props, columnsData, dataObj }) => {
   const handleSubmit = (GridCellEditCommitParams) => {
+    const token = localStorage.getItem('tokenDetails');
+    let data = { restaurantTitle: GridCellEditCommitParams.value };
+    let head = { headers: { Authorization: `Bearer ${token}` } };
     console.log(GridCellEditCommitParams);
     axios
       .put(
         `${apiUrl}/vendor-service/vendor/?vendorId=${GridCellEditCommitParams.id}`,
-        {
-          restaurantTitle: GridCellEditCommitParams.value,
-        }
+        data,
+        head
       )
       .then(function (response) {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error.message);
+        console.log(error);
       });
   };
 

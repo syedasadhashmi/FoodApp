@@ -100,11 +100,18 @@ const Menu = () => {
     link: '../Menu/addMenu',
   };
   const deleteHandler = (menuGroupId) => {
+    const token = localStorage.getItem('tokenDetails');
+
     console.log(menuGroupId);
     console.log(id);
     axios
       .delete(
-        `${apiUrl}/vendor-service/menuGroup/?vendorId=${id}&menuGroupId=${menuGroupId}`
+        `${apiUrl}/vendor-service/menuGroup/?vendorId=${id}&menuGroupId=${menuGroupId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then(function (response) {
         console.log(response);
