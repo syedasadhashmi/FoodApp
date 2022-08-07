@@ -3,7 +3,10 @@ import Layout from '../../components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import Login from '../Login';
 import { useEffect } from 'react';
-import { fetchPendingOrders } from '../../Redux/Orders/ordersActions';
+import {
+  fetchPendingOrders,
+  fetchAcceptedOrders,
+} from '../../Redux/Orders/ordersActions';
 const inPendingObj = [
   {
     id: 1,
@@ -67,19 +70,24 @@ const deliveredObj = [
 
 const Orders = () => {
   const dispatch = useDispatch();
-  const { pendingOrders } = useSelector((state) => state.ordersReducer);
+  const { pendingOrders, acceptedOrders } = useSelector(
+    (state) => state.ordersReducer
+  );
   const { isLogin } = useSelector((state) => state.loginReducer);
   useEffect(() => {
+    dispatch(fetchAcceptedOrders());
     dispatch(fetchPendingOrders());
   }, []);
   console.log(pendingOrders);
+  console.log(acceptedOrders);
+
   return (
     // <>
     //   {isLogin ? (
     <Layout>
       <Accordian
         pendingOrders={pendingOrders ? pendingOrders : []}
-        inProgressObj={inProgressObj}
+        acceptedOrders={acceptedOrders ? acceptedOrders : []}
         deliveredObj={deliveredObj}
       />
     </Layout>

@@ -21,7 +21,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Container from '@mui/material/Container';
 import classes from './Accordion.module.css';
 
-const Accordian = ({ deliveredObj, pendingOrders, inProgressObj }) => {
+const Accordian = ({ deliveredObj, pendingOrders, acceptedOrders }) => {
   const [value, setValue] = useState('1');
   const [expanded, setExpanded] = useState('false');
   const handleAccordianChange = (isExpanded, panel) => {
@@ -77,24 +77,33 @@ const Accordian = ({ deliveredObj, pendingOrders, inProgressObj }) => {
             </TabPanel>
 
             <TabPanel value="2">
-              {inProgressObj.map((items) => (
+              {acceptedOrders.map((items) => (
                 <Accordion
-                  key={items.id}
-                  expanded={expanded === `panel${items.id}`}
+                  key={items.orderId}
+                  expanded={expanded === `panel${items.orderId}`}
                   onChange={(event, isExpanded) =>
-                    handleAccordianChange(isExpanded, `panel${items.id}`)
+                    handleAccordianChange(isExpanded, `panel${items.orderId}`)
                   }
                 >
                   <AccordionSummary
-                    id={`panel${items.id}-header`}
-                    aria-labelledby={`panel${items.id}-content`}
+                    id={`panel${items.orderId}-header`}
+                    aria-labelledby={`panel${items.orderId}-content`}
                     expandIcon={<ExpandMoreIcon />}
                   >
-                    <Typography>{items.title}</Typography>
+                    <Avatar
+                      alt={items.restaurantTitle}
+                      src={items.thumbnail}
+                      sx={{ marginRight: '5px' }}
+                    />
+                    <span className={classes.topMargin}>
+                      {items.restaurantTitle}
+                    </span>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Divider />
-                    <Typography padding={2}>{items.description}</Typography>
+                    <Typography padding={2}>
+                      Amount: {items.orderAmount}
+                    </Typography>
                     <div className={classes.inProgressBtn}>
                       <Button variant="outlined">Delivered</Button>
                     </div>
