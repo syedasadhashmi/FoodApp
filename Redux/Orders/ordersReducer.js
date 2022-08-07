@@ -2,9 +2,13 @@ import {
   FETCH_PENDING_ORDERS,
   FETCH_PENDING_ORDERS_ERROR,
   FETCH_ACCEPTED_ORDERS,
+  FETCH_PREPARED_ORDERS,
   FETCH_ACCEPTED_ORDERS_ERROR,
   FETCH_CANCELLED_ORDERS,
   FETCH_CANCELLED_ORDERS_ERROR,
+  FETCH_PREPARED_ORDERS_ERROR,
+  FETCH_COMPLETED_ORDERS,
+  FETCH_COMPLETED_ORDERS_ERROR,
 } from './ordersTypes';
 const initialState = {
   pendingOrders: [],
@@ -13,6 +17,10 @@ const initialState = {
   acceptedOrdersError: '',
   cancelledOrders: [],
   cancelledOrdersError: '',
+  preparedOrders: [],
+  preparedOrderError: '',
+  completedOrders: [],
+  completedOrdersError: '',
 };
 
 const ordersReducer = (state = initialState, action) => {
@@ -50,6 +58,30 @@ const ordersReducer = (state = initialState, action) => {
       return {
         ...state,
         cancelledOrdersError: action.payload,
+      };
+    case FETCH_PREPARED_ORDERS:
+      console.log(action.payload);
+
+      return {
+        ...state,
+        preparedOrders: action.payload,
+      };
+    case FETCH_PREPARED_ORDERS_ERROR:
+      return {
+        ...state,
+        preparedOrdersError: action.payload,
+      };
+    case FETCH_COMPLETED_ORDERS:
+      console.log(action.payload);
+
+      return {
+        ...state,
+        completedOrders: action.payload,
+      };
+    case FETCH_COMPLETED_ORDERS_ERROR:
+      return {
+        ...state,
+        completedOrdersError: action.payload,
       };
     default:
       return {

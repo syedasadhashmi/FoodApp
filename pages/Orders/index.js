@@ -7,6 +7,8 @@ import {
   fetchPendingOrders,
   fetchAcceptedOrders,
   fetchCancelledOrders,
+  fetchPreparedOrders,
+  fetchCompletedOrders,
 } from '../../Redux/Orders/ordersActions';
 const inPendingObj = [
   {
@@ -71,18 +73,26 @@ const deliveredObj = [
 
 const Orders = () => {
   const dispatch = useDispatch();
-  const { pendingOrders, acceptedOrders, cancelledOrders } = useSelector(
-    (state) => state.ordersReducer
-  );
+  const {
+    pendingOrders,
+    acceptedOrders,
+    cancelledOrders,
+    preparedOrders,
+    completedOrders,
+  } = useSelector((state) => state.ordersReducer);
   const { isLogin } = useSelector((state) => state.loginReducer);
   useEffect(() => {
     dispatch(fetchAcceptedOrders());
     dispatch(fetchPendingOrders());
     dispatch(fetchCancelledOrders());
+    dispatch(fetchPreparedOrders());
+    dispatch(fetchCompletedOrders());
   }, []);
   console.log(pendingOrders);
   console.log(acceptedOrders);
   console.log(cancelledOrders);
+  console.log(preparedOrders);
+  console.log(completedOrders);
 
   return (
     // <>
@@ -92,7 +102,8 @@ const Orders = () => {
         pendingOrders={pendingOrders ? pendingOrders : []}
         acceptedOrders={acceptedOrders ? acceptedOrders : []}
         cancelledOrders={cancelledOrders ? cancelledOrders : []}
-        inProgressObj={inProgressObj}
+        preparedOrders={preparedOrders ? preparedOrders : []}
+        completedOrders={completedOrders ? completedOrders : []}
       />
     </Layout>
     //   ) : (
