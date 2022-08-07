@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import {
   fetchPendingOrders,
   fetchAcceptedOrders,
+  fetchCancelledOrders,
 } from '../../Redux/Orders/ordersActions';
 const inPendingObj = [
   {
@@ -70,16 +71,18 @@ const deliveredObj = [
 
 const Orders = () => {
   const dispatch = useDispatch();
-  const { pendingOrders, acceptedOrders } = useSelector(
+  const { pendingOrders, acceptedOrders, cancelledOrders } = useSelector(
     (state) => state.ordersReducer
   );
   const { isLogin } = useSelector((state) => state.loginReducer);
   useEffect(() => {
     dispatch(fetchAcceptedOrders());
     dispatch(fetchPendingOrders());
+    dispatch(fetchCancelledOrders());
   }, []);
   console.log(pendingOrders);
   console.log(acceptedOrders);
+  console.log(cancelledOrders);
 
   return (
     // <>
@@ -88,7 +91,8 @@ const Orders = () => {
       <Accordian
         pendingOrders={pendingOrders ? pendingOrders : []}
         acceptedOrders={acceptedOrders ? acceptedOrders : []}
-        deliveredObj={deliveredObj}
+        cancelledOrders={cancelledOrders ? cancelledOrders : []}
+        inProgressObj={inProgressObj}
       />
     </Layout>
     //   ) : (
