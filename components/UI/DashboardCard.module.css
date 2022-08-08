@@ -1,0 +1,20 @@
+.flexCard{
+    display: flex;
+    justify-content: space-between;
+}
+.flexCardChild2{
+    align-self: center;
+}
+.iconSize{
+    font-size: 24px;
+}
+.cardMotion:hover{
+    transition: 0.5s;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+.cardMotion {
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
