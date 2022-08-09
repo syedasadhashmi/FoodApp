@@ -51,7 +51,6 @@ const DataTable = ({ props, columnsData, dataObj }) => {
             columns={columnsData}
             pageSize={9}
             rowsPerPageOptions={[9]}
-            checkboxSelection
           />
         </CardContent>
       </Card>
