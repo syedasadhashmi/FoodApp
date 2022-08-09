@@ -1,14 +1,27 @@
 import React from 'react';
 import Chart from 'chart.js/auto';
-import { Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { Paper } from '@mui/material';
 const PieChart = () => {
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: [
+      'Jan',
+      'Feb',
+      'March',
+      'Apr',
+      'May',
+      'June',
+      'july',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
     datasets: [
       {
-        label: 'Vendors In Month',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Orders In Month',
+        data: [33, 73, 85, 41, 44, 65, 44, 66, 77, 88, 22, 44],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -33,7 +46,7 @@ const PieChart = () => {
     <Paper
       sx={{ height: '100%', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}
     >
-      <Pie data={data} />
+      <Bar data={data} height={400} />
     </Paper>
   );
 };

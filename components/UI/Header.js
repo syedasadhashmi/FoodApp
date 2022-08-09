@@ -65,7 +65,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            Food App
+            FooPanda
           </Typography>
         </Link>
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -131,7 +131,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            Food App
+            FooPanda
           </Typography>
         </Link>
         <Box

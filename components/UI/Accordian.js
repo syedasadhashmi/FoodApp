@@ -38,7 +38,7 @@ const Accordian = ({
   };
   return (
     <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
-      <Card>
+      <Card sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' }}>
         <CardContent>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

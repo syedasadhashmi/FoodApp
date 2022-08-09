@@ -36,10 +36,10 @@ const Home = () => {
           <Grid item md={3} sm={6} xs={12}>
             <DashboardCard4 />
           </Grid>
-          <Grid item md={8} sm={12}>
+          <Grid item md={8} sm={12} xs={12}>
             <BarChart />
           </Grid>
-          <Grid item md={4} sm={12}>
+          <Grid item md={4} sm={12} xs={12}>
             <PieChart />
           </Grid>
         </Grid>

@@ -32,7 +32,7 @@ const DataTable = ({ props, columnsData, dataObj }) => {
 
   return (
     <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
-      <Card>
+      <Card sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' }}>
         <CardHeader
           title={dataObj.title}
           action={
