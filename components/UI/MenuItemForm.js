@@ -140,7 +140,7 @@ const MenuItemForm = () => {
           </CardContent>
           <Divider />
           <CardActions sx={{ float: 'right', marginRight: '10px' }}>
-            <Link href="../Menu">
+            <Link href={`../MenuItems/${id}`}>
               <Button variant="outlined">Cancel</Button>
             </Link>
             <Button variant="outlined" type="submit">
