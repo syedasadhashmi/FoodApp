@@ -11,15 +11,15 @@ import {
   CardActions,
   Divider,
   Button,
-} from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import React, { useState } from 'react';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import Container from '@mui/material/Container';
-import classes from './Accordion.module.css';
+} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import React, { useState } from "react";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import Container from "@mui/material/Container";
+import classes from "./Accordion.module.css";
 
 const Accordian = ({
   cancelledOrders,
@@ -28,8 +28,8 @@ const Accordian = ({
   preparedOrders,
   completedOrders,
 }) => {
-  const [value, setValue] = useState('1');
-  const [expanded, setExpanded] = useState('false');
+  const [value, setValue] = useState("1");
+  const [expanded, setExpanded] = useState("false");
   const handleAccordianChange = (isExpanded, panel) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -37,11 +37,11 @@ const Accordian = ({
     setValue(newValue);
   };
   return (
-    <Container sx={{ height: '85vh', marginTop: '20px', marginBottom: '20px' }}>
-      <Card sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px;' }}>
+    <Container sx={{ height: "85vh", marginTop: "20px", marginBottom: "20px" }}>
+      <Card sx={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px;" }}>
         <CardContent>
           <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <TabList aria-label="Tabs example" onChange={handleChange}>
                 <Tab label="Pending" value="1" />
                 <Tab label="Accepted" value="2" />
@@ -50,7 +50,7 @@ const Accordian = ({
                 <Tab label="Delivered" value="5" />
               </TabList>
             </Box>
-            <TabPanel value="1" sx={{ height: '60vh', overflowY: 'scroll' }}>
+            <TabPanel value="1" sx={{ height: "60vh", overflowY: "scroll" }}>
               {pendingOrders.map((items) => (
                 <Accordion
                   key={items.orderId}
@@ -60,7 +60,7 @@ const Accordian = ({
                   }
                 >
                   <AccordionSummary
-                    sx={{ alignItems: 'center' }}
+                    sx={{ alignItems: "center" }}
                     id={`panel${items.orderId}-header`}
                     aria-labelledby={`panel${items.orderId}-content`}
                     expandIcon={<ExpandMoreIcon />}
@@ -68,7 +68,7 @@ const Accordian = ({
                     <Avatar
                       alt={items.restaurantTitle}
                       src={items.thumbnail}
-                      sx={{ marginRight: '5px' }}
+                      sx={{ marginRight: "5px" }}
                     />
                     <span className={classes.topMargin}>
                       {items.restaurantTitle}
@@ -84,7 +84,7 @@ const Accordian = ({
               ))}
             </TabPanel>
 
-            <TabPanel value="2" sx={{ height: '60vh', overflowY: 'scroll' }}>
+            <TabPanel value="2" sx={{ height: "60vh", overflowY: "scroll" }}>
               {acceptedOrders.map((items) => (
                 <Accordion
                   key={items.orderId}
@@ -101,7 +101,7 @@ const Accordian = ({
                     <Avatar
                       alt={items.restaurantTitle}
                       src={items.thumbnail}
-                      sx={{ marginRight: '5px' }}
+                      sx={{ marginRight: "5px" }}
                     />
                     <span className={classes.topMargin}>
                       {items.restaurantTitle}
@@ -117,7 +117,7 @@ const Accordian = ({
               ))}
             </TabPanel>
 
-            <TabPanel value="3" sx={{ height: '60vh', overflowY: 'scroll' }}>
+            <TabPanel value="3" sx={{ height: "60vh", overflowY: "scroll" }}>
               {cancelledOrders.map((items) => (
                 <Accordion
                   key={items.orderId}
@@ -134,7 +134,7 @@ const Accordian = ({
                     <Avatar
                       alt={items.restaurantTitle}
                       src={items.thumbnail}
-                      sx={{ marginRight: '5px' }}
+                      sx={{ marginRight: "5px" }}
                     />
                     <span className={classes.topMargin}>
                       {items.restaurantTitle}
@@ -153,7 +153,7 @@ const Accordian = ({
               ))}
             </TabPanel>
 
-            <TabPanel value="4" sx={{ height: '60vh', overflowY: 'scroll' }}>
+            <TabPanel value="4" sx={{ height: "60vh", overflowY: "scroll" }}>
               {preparedOrders.map((items) => (
                 <Accordion
                   key={items.orderId}
@@ -170,7 +170,7 @@ const Accordian = ({
                     <Avatar
                       alt={items.restaurantTitle}
                       src={items.thumbnail}
-                      sx={{ marginRight: '5px' }}
+                      sx={{ marginRight: "5px" }}
                     />
                     <span className={classes.topMargin}>
                       {items.restaurantTitle}
@@ -186,7 +186,7 @@ const Accordian = ({
               ))}
             </TabPanel>
 
-            <TabPanel value="5" sx={{ height: '60vh', overflowY: 'scroll' }}>
+            <TabPanel value="5" sx={{ height: "60vh", overflowY: "scroll" }}>
               {completedOrders.map((items) => (
                 <Accordion
                   key={items.orderId}
@@ -203,7 +203,7 @@ const Accordian = ({
                     <Avatar
                       alt={items.restaurantTitle}
                       src={items.thumbnail}
-                      sx={{ marginRight: '5px' }}
+                      sx={{ marginRight: "5px" }}
                     />
                     <span className={classes.topMargin}>
                       {items.restaurantTitle}
@@ -214,9 +214,9 @@ const Accordian = ({
                     <Typography padding={2}>
                       Amount: {items.orderAmount}
                     </Typography>
-                    <div className={classes.inProgressBtn}>
+                    {/* <div className={classes.inProgressBtn}>
                       <Button variant="outlined">Done</Button>
-                    </div>
+                    </div> */}
                   </AccordionDetails>
                 </Accordion>
               ))}
