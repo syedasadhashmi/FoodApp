@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { verifyToken } from "../../pages/Restaurants/restaurants";
+import { verifyToken } from "../../utils/restaurants";
 import { post } from "../../utils/lib";
 const ProtectedRoutes = ({ children, router }) => {
   const [viewPage, setViewPage] = useState(false);
